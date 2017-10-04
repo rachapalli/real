@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+	<!-- <changeSet id="1" author="uttamk">
+		<sql> <![CDATA[
+	         INSERT INTO `vintage` (`vintage_number`,`collateral_income`,`created_by`,`created_on`,`deleted`,`gmi`,`net_income`,`updated_by`,`updated_on`)
+	 		 VALUES (1,25,'Super Admin','2017-09-06 15:06:18',0,7,25,NULL,NULL);
+        
+   			 INSERT INTO `store_info` (`store_name`, `branch_name`, `phone_number`, `address1`, `address2`, `status`, `reasonfordeleted`, `city`, `state`, `country`, `zip`, `created_on`, `created_by`, `updated_on`, `updated_by`,`vintage_id`) 
+   			 VALUES ('95','95 Online Installment Loans', '+1(909)-237-1822','10532 Acacia Street B5','address2',true,'', 'Rancho Cucamonga', 'CA','USA','91730', '2017-09-06 15:10:16', 'Super Admin',null,'','1');
+   			 
+   			 INSERT INTO `store_info` (`store_name`, `branch_name`, `phone_number`, `address1`, `address2`, `status`, `reasonfordeleted`, `city`, `state`, `country`, `zip`, `created_on`, `created_by`, `updated_on`, `updated_by`,`vintage_id`) 
+   			 VALUES ('97','97 Online Payday Loans', '+1(760)-989-4338','10532 Acacia Street B5','address2',true,'', 'Rancho Cucamonga', 'CA','USA','91730', '2017-09-06 15:11:08', 'Super Admin',null,'','1');
+
+     ]]>
+		</sql>
+	</changeSet> -->
+	
+</databaseChangeLog>

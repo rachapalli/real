@@ -1,0 +1,30 @@
+/*  ZipCode AutoComplete Funcionalities  implementation */
+.ui-autocomplete {
+	height: 200px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.dollar_form {
+	position: absolute;
+	margin: 6px 0;
+}
+
+.dollar_form_padding {
+	padding: 0 20px !important;
+}
+
+.income_exp_grid>thead>tr>th {
+	color: #fff !important;
+	font-weight: bolder !important;
+	text-align: center;
+}
+
+.income_exp_grid>tbody>tr>td {
+	text-align: center;
+	border: 1px solid #ddd !important;
+}
+
+.income_exp_grid {
+	margin-top: 10px;
+}

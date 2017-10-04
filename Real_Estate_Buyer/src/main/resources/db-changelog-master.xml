@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@author : shikharv 
+Created date :18 Feb 2016
+ -->
+<!-- This properties is used for define the pre condition for create the data base schema.  -->
+    
+<!-- Here include the file.install.xml file contain the initial database changes 
+    and update.xml file is used for write update database changes -->
+    
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+     
+    <preConditions>
+        <or>
+           <dbms type="mysql"/>
+        </or>
+        <changeLogPropertyDefined property="databaseChangeLogLockTableName" value="RealDBChangeLogLock"/>
+        <changeLogPropertyDefined property="databaseChangeLogTableName" value="RealDBChangeLog"/>
+    </preConditions>
+     <include file="liquibase/db-install.xml" relativeToChangelogFile="true"/>
+     <include file="liquibase/db-update.xml" relativeToChangelogFile="true"/>
+   
+</databaseChangeLog>

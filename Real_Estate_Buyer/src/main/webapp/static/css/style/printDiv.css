@@ -1,0 +1,218 @@
+.border{
+	border:1px solid #000;
+	padding-left:0;
+	padding-right:0;
+}
+/*table tr.fix-width td:nth-child(1){
+	width:300px;
+}
+table tr.fix-width td{
+	width:225px;
+}*/
+.pad-0{
+	pading:0;
+}
+.left-column{
+    border-right: 1px solid #333;
+    text-align: center;
+    width: 25px;
+    padding-top:7px;
+}
+.font-17{
+	font-size:17px;
+}
+.border-top{
+	border-top:2px solid #000;
+}
+.border-bottom{
+	border-bottom:2px solid #000;
+}
+.align-right{
+	text-align:right;
+}
+.color-green{
+	color:#00805c;
+}
+.p-lr-0{
+	padding-left:0;
+	padding-right:0;
+}
+.line-border{
+	background:#000;
+	height:1px;
+}
+table tr:last-child td .line-border{
+	display:none;
+}
+.grey-color{
+	color:#7d7d7d;
+}
+table, td, th {    
+    border: none;
+    text-align: left;
+    vertical-align:top;
+    font-family:'calibri';
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    /*word-wrap: break-word;
+    word-break: break-all;*/
+}
+.dark-green{
+	background:#c8dba8;
+}
+.green{
+	background:#dae7c5;
+}
+.light-green{
+	background:#ebf1e1;
+}
+ table > tr:nth-child(odd) > td{
+	background:#c8dba8;
+}
+table > tr:nth-child(even) > td{
+	background:#dae7c5;
+} 
+th, td {
+    padding: 2px 5px;
+}
+th{
+	font-size:15px;	
+}
+.boldFont{
+	font-weight: bold;
+}
+.tdWidth{
+	width: 100px;
+}
+td{
+	font-size:15px;	
+}
+.tableBackgroundcolor{
+	background-color: #15a74c;
+	font-size: 16px;
+	padding: 10px 5px;
+	color:white;
+	-webkit-print-color-adjust:exact;
+
+}
+.innertableBackgroundcolor{
+	background-color: #4e4e4d;
+	font-size:16px;
+	color:white;
+	padding:10px 5px;
+	-webkit-print-color-adjust:exact;
+}
+.tdPullRight {
+	text-align: right;
+}
+.tdPullCenter{
+	text-align: center;
+}
+.tdPullLeft {
+	text-align: left;
+}
+
+.tableBorder_0 {
+	border:none;
+}
+
+
+.thBlackBgColor {
+	background-color: #000;
+	color:white;
+	-webkit-print-color-adjust:exact;
+}
+.incomeTdBgColor {
+	font-size: 20px; 
+	background-color: yellow;
+	-webkit-print-color-adjust:exact;
+	padding:5px;
+	vertical-align:middle;
+}
+
+.headerTable{
+	font-size:30px;
+	text-align: center;
+}
+#customerDetailForm{padding:0;}
+.print-info-table tr th {
+	width: 250px !important;
+}
+.print-info-table td{padding:7px 5px;}
+.print-info-table th, .print-info-table td{border:none;}
+.scroll-div{
+	width: 90em;
+    overflow-x: scroll;
+    margin-left: 10em;
+    overflow-y: visible;
+    padding-bottom: 1px;
+}
+.headcol {
+    position: absolute;
+    width: 9em;
+    left: 0;
+    top: auto;
+    height: 30px;
+    margin: -1px 0 0 7px;
+}
+.headcol.auto{height:auto;}
+.scroll-div .right-table{white-space:nowrap;}
+.scroll-div .right-table td{width:100px; display: inline-block; border-right:none; white-space:normal;}
+.scroll-div .right-table td:last-child{border-right:1px solid #ddd;}
+.scroll-div.verify-info .right-table td{width:180px; display: inline-block;}
+.scroll-div.verify-info .headcol{min-width: auto; width: 9em;}
+
+/*.scroll-div .right-table{white-space:nowrap;}
+.scroll-div .right-table td{min-width:100px; border-right:none; white-space:normal;}
+.scroll-div .right-table td:last-child{border-right:1px solid #ddd;}
+.scroll-div.verify-info .right-table td{min-width:180px;}
+.scroll-div.verify-info .headcol{min-width: auto; width: 9em;}*/
+
+.padding-right40{
+	padding-right: 40px;
+}
+span.boldFont {
+    margin-right: 5px;
+    white-space: nowrap;
+}
+.mar-b0{margin-bottom:0;}
+@media print{
+	body{
+		-webkit-print-color-adjust: exact;
+	}
+	.scroll-div{
+		width:75em;
+	}
+	.pad-0{padding:0 !important;}
+	table td{font-size:13px;}
+	.headerTable {
+    	font-size: 22px;
+	}
+	.print-info-table tr{position:relative;}
+	.headcol{height:21px;}
+	.pull-right{float:right;}
+	.print-info-table.first tr td{min-width:110px;}
+	.multi-info tr td{width:70px; float:left;}
+	.multi-info tr td:first-child{width:127px; float:left;}
+	.fico-info tr td{min-width:70px !important; width:70px !important; float:left;}
+	.fico-info tr td:first-child{width:127px !important; float:left;}
+	.print-info-table.expense tr td{
+		width:110px;
+	}
+	.print-info-table.refrense tr td{
+		width:110px;
+	}
+	.dis-none{
+		display:none;
+	}
+	.green{
+		background-color:#dae7c5;
+	}
+	.light-green{
+		background-color:#ebf1e1;
+	}
+}

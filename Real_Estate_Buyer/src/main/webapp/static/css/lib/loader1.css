@@ -1,0 +1,21 @@
+.fixed-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+    text-align: center;
+    display:none;
+    
+}
+.fixed-wrapper h2{
+	font-size: 20px;
+    color:#fff;
+}
+.absOut{
+	position:absolute;
+	top:44%;
+	left:44%;
+}

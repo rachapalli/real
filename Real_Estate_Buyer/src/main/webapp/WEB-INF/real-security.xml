@@ -1,0 +1,55 @@
+
+<beans:beans 	xmlns="http://www.springframework.org/schema/security"
+				xmlns:beans="http://www.springframework.org/schema/beans"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="http://www.springframework.org/schema/beans 
+			    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			    http://www.springframework.org/schema/security 
+			    http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+	<global-method-security secured-annotations="enabled" />
+	<http pattern="/nonsecure/**" security="none" />
+	<http use-expressions="true" auto-config="false" entry-point-ref="loginUrlAuthenticationEntryPoint">
+	<headers />
+	
+	<!-- To intercept all the request those have /cash/** in URI -->
+	<intercept-url pattern="/cash/**" requires-channel="any" access="isAuthenticated()"></intercept-url>
+	
+	<!-- This filter added to handle situation where AJAX request is made when session has timed out -->
+	<custom-filter ref="ajaxSessionManagementFilter" before="SESSION_MANAGEMENT_FILTER" />
+	
+	<!-- To load customer login page and define target URL -->
+	<form-login login-page="/login" authentication-failure-url="/denied" username-parameter="emailId"
+	 password-parameter="password" default-target-url="/cash/choosestore" />
+	<logout invalidate-session="false" logout-success-url="/login" logout-url="/j_spring_security_logout"
+	 delete-cookies="JSESSIONID" />
+	 
+	<access-denied-handler error-page="/denied" />
+		<session-management invalid-session-url="/login?sessionExpired=true"
+			session-authentication-error-url="/alreadylogin"
+			session-fixation-protection="newSession" />
+		<csrf disabled="true" />
+	</http>
+
+	<!-- Define the authentication manager -->
+	<authentication-manager>
+		<authentication-provider ref="customAuthenticationProvider" />
+		<authentication-provider user-service-ref="userDetailsServiceImpl">
+			<password-encoder hash="sha-256" />
+		</authentication-provider>
+	</authentication-manager>
+
+	<!-- Start define the beans -->
+	<beans:bean id="loginUrlAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<beans:constructor-arg value="/login"></beans:constructor-arg>
+	</beans:bean>
+	<beans:bean id="userDetailsServiceImpl" class="com.property.buyer.service.impl.UserDetailsServiceImpl" />
+	<beans:bean id="customAuthenticationProvider" class="com.property.buyer.helper.CustomAuthenticationProvider" />
+	<beans:bean id="ajaxSessionManagementFilter" class="com.property.buyer.helper.AjaxFilter">
+	
+	<!-- This property value should match what is configured for session-management invalid-session-url -->
+	<beans:property name="invalidSessionUrl" value="/login?sessionExpired=true" />
+	</beans:bean>
+
+	<!-- End define the beans -->
+</beans:beans> 
