@@ -29,7 +29,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.property.buyer.model.Buyers;
-import com.property.buyer.service.UserService;
+import com.property.buyer.service.BuyerService;
 import com.property.buyer.utility.EncryptionUtility;
 
 /**
@@ -43,7 +43,7 @@ import com.property.buyer.utility.EncryptionUtility;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
-	private UserService userService;
+	private BuyerService userService;
 
 	public UserDetails loadUserByUsername(final String userName) throws UsernameNotFoundException {
 		final Buyers user = userService.getUserLoginId(userName);

@@ -17,26 +17,41 @@
  */
 package com.property.buyer.service.impl;
 
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.property.buyer.dao.IBaseDao;
+import com.property.buyer.dto.RegisterBuyersDTO;
 import com.property.buyer.model.Buyers;
-import com.property.buyer.service.UserService;
+import com.property.buyer.service.BuyerService;
 
-
-/**
- * This Service is used for user operations.
- *
- * @author satyamg - Chetu
- * @version 1.0 - June 15, 2017
- */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements BuyerService {
 
-	/* (non-Javadoc)
-	 * @see com.property.buyer.service.UserService#getUserLoginId(java.lang.String)
-	 */
+	@Autowired
+	private IBaseDao<Buyers> buyersBaseDao;
+	
 	public Buyers getUserLoginId(String username) {
-		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Transactional
+	public boolean saveBuyer(final RegisterBuyersDTO registerBuyersDTO) {
+		// TODO check for the existing buyers
+		final Buyers buyers = new Buyers();
+		buyers.setCreateDate(new Date());
+		buyers.setAuthorities("USER");
+		buyers.setFirstName(registerBuyersDTO.getFirstName());
+		buyers.setLastName(registerBuyersDTO.getLastName());
+		buyers.setUsername(registerBuyersDTO.getEmail());
+		//TODO encrypt password
+		buyers.setPassword(registerBuyersDTO.getPassword());
+		buyersBaseDao.save(buyers);
+		
+		return true;
+	}
 }
+

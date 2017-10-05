@@ -18,14 +18,23 @@
 
 package com.property.buyer.controller;
 
+import java.io.IOException;
+import java.text.ParseException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.property.buyer.dto.RegisterBuyersDTO;
+import com.property.buyer.service.BuyerService;
 import com.property.buyer.utility.CashBakConstantEnum;
 
 @Controller
@@ -33,6 +42,8 @@ public class BuyersController {
 
 	private static final Logger LOG = Logger.getLogger(BuyersController.class);
 
+	@Autowired
+	private BuyerService buyerService;
 	/**
 	 * This method is used for user login.
 	 * 
@@ -46,7 +57,7 @@ public class BuyersController {
 	@RequestMapping(value = "/")
 	public String dashboard(final HttpServletRequest request, final ModelMap model) {
 		String form = CashBakConstantEnum.LOGIN.getValue();
-		form = CashBakConstantEnum.REGISTER.getValue();
+		form = CashBakConstantEnum.WELCOME.getValue();
 		return form;
 	}
 	
@@ -61,10 +72,10 @@ public class BuyersController {
 	 * @param sessionExpired
 	 */
 	@RequestMapping(value = "/register")
-	public String register(final HttpServletRequest request, final ModelMap model) {
-		String form = CashBakConstantEnum.LOGIN.getValue();
-		form = CashBakConstantEnum.LOGIN.getValue();
-		return form;
+	public ModelAndView register(final HttpServletRequest request, final ModelMap model) {
+		final ModelAndView modelAndView = new ModelAndView("register");
+		modelAndView.addObject("registerBuyer", new RegisterBuyersDTO());
+		return modelAndView;
 	}
 
 
@@ -133,6 +144,17 @@ public class BuyersController {
 		model.addAttribute(CashBakConstantEnum.AUTHFAILED.getValue(),
 				CashBakConstantEnum.INVALID_USER_NAME_OR_PASSWORD.getValue());
 		return CashBakConstantEnum.LOGIN.getValue();
+	}
+	
+	@RequestMapping(value = "/buyer/register", method = RequestMethod.POST)
+	public String saveEmployeeData(final ModelMap model, @ModelAttribute RegisterBuyersDTO registerBuyers)
+			throws ParseException, IOException {
+		String form = "";
+		if (buyerService.saveBuyer(registerBuyers)){
+			form = CashBakConstantEnum.LOGIN.getValue();
+		}	
+
+		return form;
 	}
 
 }

@@ -13,7 +13,6 @@
 <link href="<c:url value='/static/css/lib/theme.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/style/main-style.css' />" rel="stylesheet"></link>
 </head>
-
 <body>
     <div class="login-wraper">
 

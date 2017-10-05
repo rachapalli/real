@@ -38,7 +38,6 @@ import javax.persistence.TemporalType;
 @Table(name = "BUYERS")
 public class Buyers implements java.io.Serializable {
 	private static final long serialVersionUID = -5377873949674092983L;
-	private Boolean access;
 	private String authorities;
 	private String status;
 	private String cellPhone;
@@ -53,15 +52,6 @@ public class Buyers implements java.io.Serializable {
 
 	public Buyers() {
 
-	}
-
-	@Column(name = "IS_ACCESS")
-	public Boolean getAccess() {
-		return access;
-	}
-
-	public void setAccess(Boolean access) {
-		this.access = access;
 	}
 
 	@Column(name = "AUTHORITIES")
@@ -172,7 +162,6 @@ public class Buyers implements java.io.Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((access == null) ? 0 : access.hashCode());
 		result = prime * result + ((authorities == null) ? 0 : authorities.hashCode());
 		result = prime * result + ((cellPhone == null) ? 0 : cellPhone.hashCode());
 		result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
@@ -196,11 +185,7 @@ public class Buyers implements java.io.Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Buyers other = (Buyers) obj;
-		if (access == null) {
-			if (other.access != null)
-				return false;
-		} else if (!access.equals(other.access))
-			return false;
+
 		if (authorities == null) {
 			if (other.authorities != null)
 				return false;

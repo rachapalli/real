@@ -25,6 +25,7 @@ package com.property.buyer.utility;
 * @version 1.0 - Apr 7, 2016
 */
 public enum CashBakConstantEnum {
+	WELCOME("index"),
 	REGISTER("register"),
 	UPLOAD_LOGO_TYPE("changeLogo"), 
 	UPLOAD_PROFILE_PIC_TYPE("changeProfilePic"), 

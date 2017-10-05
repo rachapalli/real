@@ -1,6 +1,7 @@
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\helper\CustomAuthenticationProvider.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\service\impl\UserDetailsServiceImpl.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\utility\Utility.java
+D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\dto\RegisterBuyersDTO.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\model\Address.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\utility\ApplicationConstants.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\utility\EncryptionUtility.java
@@ -10,10 +11,10 @@ D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\dao\impl\UserDao
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\service\UserService.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\dao\impl\BaseDaoImpl.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\ajax\AjaxRequest.java
-D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\controller\LoginController.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\model\Buyers.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\model\Property.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\model\State.java
+D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\controller\BuyersController.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\dao\IBaseDao.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\dao\UserDao.java
 D:\WorkSpace\Real_Estate_Buyer\src\main\java\com\property\buyer\service\impl\UserServiceImpl.java

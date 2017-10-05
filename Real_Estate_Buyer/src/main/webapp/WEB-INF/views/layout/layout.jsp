@@ -77,6 +77,7 @@
     <script src="<c:url value='/static/js/lib/loader.js' />"></script>
     <script src="<c:url value='/static/js/lib/highcharts.js' />"></script>
     <script src="<c:url value='/static/js/lib/exporting.js' />"></script>
+    <script src="<c:url value='/static/js/script.js' />"></script>
     <!-- Application Java Script -->
 </head>
 

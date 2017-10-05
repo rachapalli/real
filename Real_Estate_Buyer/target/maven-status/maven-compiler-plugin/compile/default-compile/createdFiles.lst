@@ -1,4 +1,1 @@
-com\property\buyer\model\State.class
-com\property\buyer\service\impl\UserDetailsServiceImpl.class
-com\property\buyer\model\Address.class
-com\property\buyer\model\Property.class
+com\property\buyer\service\BuyerService.class
