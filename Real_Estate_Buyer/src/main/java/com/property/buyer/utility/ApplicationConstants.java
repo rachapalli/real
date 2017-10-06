@@ -28,6 +28,7 @@ import java.util.regex.Pattern;
  * @version 1.0 - Jun 20, 2017
  */
 public class ApplicationConstants {
+	public static final String LOGGED_USER="loggedUser";
 	public static final String MESSAGE = "message";
 	public static final String RANDOMPASSWORD = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
 	public static final int RANDOM_PASSWORD_LENGTH = 8;

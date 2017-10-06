@@ -33,8 +33,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.regex.Matcher;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Any;
 
@@ -470,6 +472,51 @@ public class Utility {
 			stringBuilder.append(strings[index]);
 		}
 		return stringBuilder;
+	}
+
+	public static String getColumnNameByValue(String valToCheck) {
+		if (isValidEmail(valToCheck)) {
+			return "username";
+		} else if (isValidMobileNumber(valToCheck)) {
+			return "cellPhone";
+		} else {
+			return "id";
+		}
+	}
+
+	/**
+	 * This method return true if passed email is a valid email otherwise return
+	 * false.
+	 * 
+	 * @author prabinar
+	 * @date 26-Jun-2017
+	 * @return <code>Boolean</code>
+	 * @param emailStr
+	 */
+	public static Boolean isValidEmail(String emailStr) {
+		Matcher matcher = ApplicationConstants.VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+		return matcher.find();
+
+	}
+
+	/**
+	 * This method will return true if passed mobile number is vaplid other wise
+	 * return false.
+	 * 
+	 * @author prabinar
+	 * @date 26-Jun-2017
+	 * @return <code>Boolean</code>
+	 * @param mobeileNumberStr
+	 */
+	public static Boolean isValidMobileNumber(String mobeileNumberStr) {
+		int indexOfPlus = mobeileNumberStr.indexOf("+");
+		if (indexOfPlus == 0) {
+			return true;
+		}
+		if (NumberUtils.isNumber(mobeileNumberStr)) {
+			return true;
+		}
+		return false;
 	}
 
 }

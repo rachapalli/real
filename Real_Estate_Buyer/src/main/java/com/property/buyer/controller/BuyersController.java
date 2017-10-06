@@ -44,16 +44,7 @@ public class BuyersController {
 
 	@Autowired
 	private BuyerService buyerService;
-	/**
-	 * This method is used for user login.
-	 * 
-	 * @author mukeshs
-	 * @date 01-Mar-2017
-	 * @return <code>String</code>
-	 * @param request
-	 * @param model
-	 * @param sessionExpired
-	 */
+	
 	@RequestMapping(value = "/")
 	public String dashboard(final HttpServletRequest request, final ModelMap model) {
 		String form = CashBakConstantEnum.LOGIN.getValue();
@@ -61,16 +52,7 @@ public class BuyersController {
 		return form;
 	}
 	
-	/**
-	 * This method is used for user login.
-	 * 
-	 * @author mukeshs
-	 * @date 01-Mar-2017
-	 * @return <code>String</code>
-	 * @param request
-	 * @param model
-	 * @param sessionExpired
-	 */
+	
 	@RequestMapping(value = "/register")
 	public ModelAndView register(final HttpServletRequest request, final ModelMap model) {
 		final ModelAndView modelAndView = new ModelAndView("register");
@@ -79,16 +61,6 @@ public class BuyersController {
 	}
 
 
-	/**
-	 * This method is used for user login.
-	 * 
-	 * @author mukeshs
-	 * @date 01-Mar-2017
-	 * @return <code>String</code>
-	 * @param request
-	 * @param model
-	 * @param sessionExpired
-	 */
 	@RequestMapping(value = "/login**")
 	public String login(final HttpServletRequest request, final ModelMap model,
 			@RequestParam(value = "sessionExpired", required = false) final String sessionExpired) {
@@ -101,14 +73,6 @@ public class BuyersController {
 		return form;
 	}
 
-	/**
-	 * This method is used for user logout.
-	 * 
-	 * @author mukeshs
-	 * @date 01-Mar-2017
-	 * @return <code>String</code>
-	 * @param model
-	 */
 	@RequestMapping(value = "/logout")
 	public String logout(final ModelMap model) {
 		LOG.info("Start getForgotPassword method");
@@ -117,28 +81,12 @@ public class BuyersController {
 		return CashBakConstantEnum.LOGIN.getValue();
 	}
 
-	/**
-	 * This method is used to check user already login or not.
-	 * 
-	 * @author mukeshs
-	 * @date 01-Mar-2017
-	 * @return <code>String</code>
-	 * @param model
-	 */
 	@RequestMapping(value = "/alreadylogin")
 	public String alreadylogin(final ModelMap model) {
 		model.addAttribute(CashBakConstantEnum.EMPTY_STRING.getValue(), CashBakConstantEnum.ALREADY_LOGIN.getValue());
 		return CashBakConstantEnum.LOGOUT.getValue();
 	}
 
-	/**
-	 * This method is used for user denied.
-	 * 
-	 * @author mukeshs
-	 * @date 01-Mar-2017
-	 * @return <code>String</code>
-	 * @param model
-	 */
 	@RequestMapping(value = "/denied")
 	public String denied(final ModelMap model) {
 		model.addAttribute(CashBakConstantEnum.AUTHFAILED.getValue(),
