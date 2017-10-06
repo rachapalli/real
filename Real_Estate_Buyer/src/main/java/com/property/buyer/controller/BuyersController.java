@@ -2,17 +2,17 @@
  * ===========================================================================
  * File Name BuyersController.java
  * 
- * Created on 04-October-2017
+ * Created on Oct 04, 2017
  *
  * This code contains copyright information which is the proprietary property
- * of CashBak-FI. No part of this code may be reproduced, stored or transmitted
- * in any form without the prior written permission of CashBak-FI.
+ * of Real_Estate. No part of this code may be reproduced, stored or transmitted
+ * in any form without the prior written permission of Real_Estate.
  *
- * Copyright (C) Real_Estate_Buyer. 2017
+ * Copyright (C) Real_Estate. 2017
  * All rights reserved.
  *
  * Modification history:
- * $Log: LoginController.java,v $
+ * $Log: BuyersController.java,v $
  * ===========================================================================
  */
 

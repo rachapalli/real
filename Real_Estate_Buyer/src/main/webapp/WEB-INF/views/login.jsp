@@ -6,28 +6,13 @@
 <title></title>
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <link href="<c:url value='/static/css/lib/bootstrap.min.css' />" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/style/cashbak.css' />" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/style/materialadmin.css' />" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/lib/font-awesome.min.css' />" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/lib/theme.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/style/main-style.css' />" rel="stylesheet"></link>
+<link href="<c:url value='/static/css/lib/buttons.dataTables.min.css'/>" rel="stylesheet"></link>
+
 <script src="<c:url value='/static/js/libs/jQuery-2.1.4.min.js' />"></script>
 <script src="<c:url value='/static/js/libs/jquery-1.12.4.js' />"></script>
-<script src="<c:url value='/static/js/libs/bootstrap.min.js' />"></script>
-<link href="<c:url value='/static/css/lib/bootstrap-dialog.css' />" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/lib/jquery.tagger.css' />" rel="stylesheet"></link>
-<!-- Start AutoComplete  TextField  Dropdown  Functionality implementation -->
-<link href="<c:url value='/static/css/lib/jquery-ui.css'/>" rel="stylesheet"></link>
+<script src="<c:url value='/static/js/script.js' />"></script>
 
-<script src="<c:url value='/static/js/libs/jquery-ui.js' />"></script>
-<!-- End AutoComplete  TextField  Dropdown  Functionality implementation -->
-<link href="<c:url value='/static/css/lib/bootstrap-glyphicons.css'/>" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/lib/dataTables.bootstrap.css'/>" rel="stylesheet"></link>
-
-<link href="<c:url value='/static/css/lib/loader1.css'/>" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/lib/loader2.css'/>" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/lib/buttons.dataTables.min.css'/>" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/lib/jquery-editable-select.css'/>" rel="stylesheet"></link>
 <c:url var="loginUrl" value="/login" />
 </head>
 
@@ -42,7 +27,7 @@
             <div class="main-inner">
                 <c:out value="${logout}" />
                 
-                <form class="form padding-top25" action="${loginUrl}"  onsubmit="return emailIdLoginCheck();" method="post">
+                <form class="form padding-top25"  action="<c:url value='j_spring_security_check' />" method='POST' onsubmit="return emailIdLoginCheck();" >
                     <span style="color: green;"> ${mailSuccessMsg} </span>
                      <div id="loginCheckMSG" class="error-msg">
                         <c:if test="${param.authfailed != null}">
@@ -58,13 +43,15 @@
                         <label class="managelabel">Email ID</label> <a href="javascript:void(0)" class="rem-link pull-right"
                             style="visibility: hidden; display: none;">Remind me</a>
                         <div class="clearfix"></div>
-                        <input type="text" class="form-control input-sm" id="emailId" autofocus="autofocus" name="emailId" placeholder="Enter Email ID" required>
+                       <!--  <input type="text" class="form-control input-sm" id="emailId" autofocus="autofocus" name="emailId" placeholder="Enter Email ID" required> -->
+                      <input type="text" name="j_username" placeholder="USERNAME" >
                     </div>
                     <div class="form-group">
                         <label class="managelabel">Password</label> <a href="javascript:void(0)" class="rem-link pull-right"
                             style="visibility: hidden; display: none;">Reset</a>
                         <div class="clearfix"></div>
-                        <input type="password" class="form-control input-sm" id="password" name="password" placeholder="Enter Password" required>
+                      <!--   <input type="password" class="form-control input-sm" id="password" name="password" placeholder="Enter Password" required> -->
+                      <input type="password" name="j_password" placeholder="PASSWORD" id="loginUserPassId">
                     </div>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                     <div class="form-group">
@@ -82,17 +69,5 @@
             </div>
         </div>
     </div>
-
-    <!-- jQuery 2.1.4 -->
-    <script src="<c:url value='/static/js/libs/jQuery-2.1.4.min.js' />"></script>
-    <script src="<c:url value='/static/js/libs/bootstrap.min.js' />"></script>
-    <script src="<c:url value='/static/js/libs/app.min.js' />"></script>
-    <script src="<c:url value='/static/js/libs/AppForm.js' />"></script>
-     <script src="<c:url value='/static/js/login.js' />"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <!-- <script src="js/bootstrap.min.js"></script>  -->
-    <!-- <!-- Application Java Script -->    
-    <!-- <script src="js/app.min.js"></script>  -->
-    <!-- <script src="js/AppForm.js"></script> -->
 </body>
 </html>

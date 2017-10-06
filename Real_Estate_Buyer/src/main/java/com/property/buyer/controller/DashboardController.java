@@ -1,3 +1,20 @@
+/* 
+ * ===========================================================================
+ * File Name DashboardController.java
+ * 
+ * Created on Oct 04, 2017
+ *
+ * This code contains copyright information which is the proprietary property
+ * of Real_Estate. No part of this code may be reproduced, stored or transmitted
+ * in any form without the prior written permission of Real_Estate.
+ *
+ * Copyright (C) Real_Estate. 2017
+ * All rights reserved.
+ *
+ * Modification history:
+ * $Log: DashboardController.java,v $
+ * ===========================================================================
+ */
 package com.property.buyer.controller;
 
 import java.util.Collection;
@@ -5,7 +22,6 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.annotations.Any;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,10 +39,6 @@ import com.property.buyer.service.BuyerService;
 import com.property.buyer.utility.ApplicationConstants;
 import com.property.buyer.utility.Utility;
 
-/**
- * @author mukeshs CashBak-F1 Jan 30, 2016 It is used to handle the requested
- *         related to dashboard
- */
 @Controller
 @SessionAttributes(ApplicationConstants.LOGGED_USER)
 @RequestMapping(value = "/real")
@@ -35,16 +47,6 @@ public class DashboardController {
 	@Autowired
 	private BuyerService buyerService;
 
-	/**
-	 * This method is used to view home page.
-	 * 
-	 * @author mukeshs
-	 * @param request
-	 *            A HttpServletRequest object containing
-	 * @exception Any
-	 *                exception
-	 * @return ModelAndView type object
-	 */
 	@RequestMapping(value = "/dashboard", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView dashboardView(final HttpServletRequest request, final ModelMap model) {
 		final ModelAndView modelView = new ModelAndView("dashboard");
@@ -60,11 +62,11 @@ public class DashboardController {
 				final User user = (User) authentication.getPrincipal();
 				loggedUser = buyerService.getUserLoginId(user.getUsername());
 				if (loggedUser != null) {
-					modelView.addObject(ApplicationConstants.LOGGEDUSER, loggedUser);
+					modelView.addObject(ApplicationConstants.LOGGED_USER, loggedUser);
 				}
 				if (httpSession != null) {
-					model.remove(ApplicationConstants.LOGGEDUSER);
-					httpSession.setAttribute(ApplicationConstants.LOGGEDUSER, loggedUser);
+					model.remove(ApplicationConstants.LOGGED_USER);
+					httpSession.setAttribute(ApplicationConstants.LOGGED_USER, loggedUser);
 				}
 				/* Getting the roles/authorities assigned to the user */
 				@SuppressWarnings("unchecked")

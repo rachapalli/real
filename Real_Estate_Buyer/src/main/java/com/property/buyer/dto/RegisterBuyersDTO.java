@@ -15,18 +15,21 @@
  * $Log: RegisterBuyers.java,v $
  * ===========================================================================
  */
-/**
-* Class Information
-* @author umamaheswarar - Chetu
-* @version 1.0 - Oct 5, 2017
-*/
+
 package com.property.buyer.dto;
 
+/**
+ * Class Information
+ * 
+ * @author umamaheswarar - Chetu
+ * @version 1.0 - Oct 5, 2017
+ */
 public class RegisterBuyersDTO {
 
 	private String firstName;
 	private String lastName;
 	private String password;
+	private String phone;
 	private String email;
 
 	public RegisterBuyersDTO() {
@@ -63,6 +66,14 @@ public class RegisterBuyersDTO {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 }

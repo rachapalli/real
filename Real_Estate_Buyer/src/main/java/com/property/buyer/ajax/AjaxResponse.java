@@ -2,35 +2,28 @@
  * ===========================================================================
  * File Name AjaxResponse.java
  * 
- * Created on 15-Jun-2017
+ * Created on Oct 04, 2017
  *
  * This code contains copyright information which is the proprietary property
- * of GirasolPayments-Admin. No part of this code may be reproduced, stored or transmitted
- * in any form without the prior written permission of GirasolPayments-Admin.
+ * of Real_Estate. No part of this code may be reproduced, stored or transmitted
+ * in any form without the prior written permission of Real_Estate.
  *
- * Copyright (C) GirasolPayments-Admin. 2017
+ * Copyright (C) Real_Estate. 2017
  * All rights reserved.
  *
  * Modification history:
  * $Log: AjaxResponse.java,v $
  * ===========================================================================
  */
-
 package com.property.buyer.ajax;
 
-/**
- * This class is used to design the response to be sent as ajax response.
- * 
- * @author prabinar
- * @version 1.1 - Jun 21, 2017
- */
 public class AjaxResponse {
 	private Boolean status = null;
 	private Object data = null;
 
 	/**
-	 *   
-	 * @description 
+	 * 
+	 * @description
 	 */
 	public AjaxResponse() {
 		super();

@@ -2,31 +2,34 @@
  * ===========================================================================
  * File Name AjaxRequest.java
  * 
- * Created on 15-Jun-2017
+ * Created on Oct 04, 2017
  *
  * This code contains copyright information which is the proprietary property
- * of GirasolPayments-Admin. No part of this code may be reproduced, stored or transmitted
- * in any form without the prior written permission of GirasolPayments-Admin.
+ * of Real_Estate. No part of this code may be reproduced, stored or transmitted
+ * in any form without the prior written permission of Real_Estate.
  *
- * Copyright (C) GirasolPayments-Admin. 2017
+ * Copyright (C) Real_Estate. 2017
  * All rights reserved.
  *
  * Modification history:
  * $Log: AjaxRequest.java,v $
  * ===========================================================================
  */
-
 package com.property.buyer.ajax;
+
+import java.io.Serializable;
 
 /**
  * This class is used to keep ajax request attribute values.
  * 
  * @author Umamaheswara
- * @version 1.0 - Sep 22, 2017
+ * @version 1.0 - Oct 05, 2017
  */
 
-public class AjaxRequest {
+public class AjaxRequest implements Serializable{
 
+	/** long Short Description */
+	private static final long serialVersionUID = -5955085522435056314L;
 	private String taskStatus;
 	private long customerId;
 	private long employeeId;

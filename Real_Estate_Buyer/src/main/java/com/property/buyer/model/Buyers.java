@@ -1,18 +1,18 @@
 /* 
  * ===========================================================================
- * File Name User.java
+ * File Name Buyers.java
  * 
- * Created on Mar 30, 2017
+ * Created on Oct 04, 2017
  *
  * This code contains copyright information which is the proprietary property
- * of GirasolPayments-PYMT. No part of this code may be reproduced, stored or transmitted
- * in any form without the prior written permission of GirasolPayments-PYMT.
+ * of Real_Estate. No part of this code may be reproduced, stored or transmitted
+ * in any form without the prior written permission of Real_Estate.
  *
- * Copyright (C) GirasolPayments-PYMT. 2017
+ * Copyright (C) Real_Estate. 2017
  * All rights reserved.
  *
  * Modification history:
- * $Log: User.java,v $
+ * $Log: Buyers.java,v $
  * ===========================================================================
  */
 package com.property.buyer.model;
@@ -29,7 +29,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * User model contains all User data.
+ * Buyers model contains all encapsulated details of Buyers.
  * 
  * @author Umamaheswarar
  * @version 1.0 - Oct 04, 2017

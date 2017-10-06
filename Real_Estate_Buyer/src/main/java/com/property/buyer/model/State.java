@@ -1,3 +1,20 @@
+/* 
+ * ===========================================================================
+ * File Name State.java
+ * 
+ * Created on Oct 04, 2017
+ *
+ * This code contains copyright information which is the proprietary property
+ * of Real_Estate. No part of this code may be reproduced, stored or transmitted
+ * in any form without the prior written permission of Real_Estate.
+ *
+ * Copyright (C) Real_Estate. 2017
+ * All rights reserved.
+ *
+ * Modification history:
+ * $Log: State.java,v $
+ * ===========================================================================
+ */
 package com.property.buyer.model;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -14,7 +31,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "state")
+@Table(name = "STATE")
 public class State implements java.io.Serializable {
 
 	/** long Short Description */

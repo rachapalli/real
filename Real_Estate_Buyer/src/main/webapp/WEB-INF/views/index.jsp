@@ -7,24 +7,43 @@
 <c:url value="/register" var="registerUrl" />
 <c:url value="/login" var="loginUrl" />
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Welcome to Real Estate Web site</title>
+
+<!-- your webpage info goes here -->
+
+<title>Real Estate Web site</title>
+
+<meta name="author" content="your name" />
+<meta name="description" content="" />
+
+<link rel="stylesheet" href="/static/css/style/main-style.css"
+	type="text/css" />
+
 </head>
-
-<form:form id="registerFormId" action="${registerUrl}" method="POST">
-
-	<input type="submit" name="Register Buyers" value="Register Buyers">
-
-</form:form>
-<form:form id="loginFormId" action="${loginUrl}" method="POST">
-
-	<input type="submit" name="login" value="Log in">
-
-</form:form>
-
-
+	<body>
+		<!-- webpage content goes here in the body -->
+		<div id="page">
+			<div id="logo">
+				<h1>My Real Estate Web site</h1>
+			</div>
+			<div id="nav">
+				<form:form id="registerFormId" action="${registerUrl}" method="POST">
+					<input type="submit" align="right" name="Register Buyers" value="Register Buyers">
+				</form:form>
+				<form:form id="loginFormId" action="${loginUrl}" method="POST">
+					<input type="submit" name="login" align="right" value="Log in">
+				</form:form>
+			</div>
+			<div id="content">
+				<p>Test comment</p>
+				<p>Test comment</p>
+			</div>
+			<div id="footer">
+				<p>Web page made by Umamaheswara Rao</p>
+			</div>
+		</div>
+	</body>
 </html>
