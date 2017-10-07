@@ -1,7 +1,9 @@
 .body {
 	background-color: #525252;
 }
-
+.body-bg {
+	background:#075a9c;
+}
 .centered-form {
 	margin-top: 60px;
 }
@@ -132,10 +134,13 @@ body {
 
 /* or on different lines like below */
 #logo {
-	width: 35%;
 	margin-top: 5px;
 	font-family: georgia;
-	display: inline-block;
+}
+#logo h1 {
+	text-align:center;
+	font-size:28px;
+	color:#fff;
 }
 /* but try and be as concise as possible */
 #nav {

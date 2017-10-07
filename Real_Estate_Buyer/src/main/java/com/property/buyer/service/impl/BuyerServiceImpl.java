@@ -34,12 +34,12 @@ public class BuyerServiceImpl implements BuyerService {
 	private BuyerDao buyerDao;
 	@Autowired
 	private SendMail sender;
-	@Value("${mail.from}")
+	/*@Value("${mail.from}")
 	private String from;
 	@Value("${pmt.to.cust.subject}")
 	private String subject;
 	@Value("${pmt.to.cust.msg}")
-	private String msg;
+	private String msg;*/
 
 	@Transactional
 	public boolean saveBuyer(final RegisterBuyersDTO registerBuyersDTO) {
@@ -87,12 +87,12 @@ public class BuyerServiceImpl implements BuyerService {
 	@Override
 	@Transactional
 	public boolean contactSeller(ModelMap map, AjaxRequest ajaxRequest) {
-		try {
-			sender.send(from, ajaxRequest.getEmail(), subject, ajaxRequest.getMessage());
+		/*try {
+			//sender.send(from, ajaxRequest.getEmail(), subject, ajaxRequest.getMessage());
 			return true;
 		} catch (MessagingException e) {
 			//TODO EXception Handling
-		}
+		}*/
 		return true;
 	}
 }

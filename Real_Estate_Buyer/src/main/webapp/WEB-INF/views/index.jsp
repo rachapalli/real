@@ -18,12 +18,18 @@
 
 <meta name="author" content="your name" />
 <meta name="description" content="" />
+<link href="<c:url value='/static/css/lib/bootstrap.min.css' />" rel="stylesheet"></link>
+<link href="<c:url value='/static/css/style/materialadmin.css' />" rel="stylesheet"></link>
+<link href="<c:url value='/static/css/lib/font-awesome.min.css' />" rel="stylesheet"></link>
+<link href="<c:url value='/static/css/lib/theme.css' />" rel="stylesheet"></link>
+<link href="<c:url value='/static/css/style/main-style.css' />" rel="stylesheet"></link>
+<script src="<c:url value='/static/js/lib/jQuery-2.1.4.min.js' />"></script>
+<script src="<c:url value='/static/js/lib/jquery-1.12.4.js' />"></script>
+<script src="<c:url value='/static/js/lib/bootstrap.min.js' />"></script>
 
-<link rel="stylesheet" href="/static/css/style/main-style.css"
-	type="text/css" />
 
 </head>
-	<body>
+	<body class="body-bg">
 		<!-- webpage content goes here in the body -->
 		<div id="page">
 			<div id="logo">
@@ -31,10 +37,10 @@
 			</div>
 			<div id="nav">
 				<form:form id="registerFormId" action="${registerUrl}" method="POST">
-					<input type="submit" align="right" name="Register Buyers" value="Register Buyers">
+					<input type="submit" align="right" name="Register Buyers" value="Register Buyers" class="btn btn-warning">
 				</form:form>
 				<form:form id="loginFormId" action="${loginUrl}" method="POST">
-					<input type="submit" name="login" align="right" value="Log in">
+					<input type="submit" name="login" align="right" value="Log in" class="btn btn-info">
 				</form:form>
 			</div>
 			<div id="content">
