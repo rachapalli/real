@@ -10,13 +10,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome to Real Estate Web site</title>
-
 <!-- your webpage info goes here -->
-
 <title>Real Estate Web site</title>
 
-<meta name="author" content="your name" />
+<meta name="author" content="RealEstate" />
 <meta name="description" content="" />
 <link href="<c:url value='/static/css/lib/bootstrap.min.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/style/materialadmin.css' />" rel="stylesheet"></link>
@@ -25,7 +22,6 @@
 <link href="<c:url value='/static/css/style/main-style.css' />" rel="stylesheet"></link>
 <script src="<c:url value='/static/js/lib/jQuery-2.1.4.min.js' />"></script>
 <script src="<c:url value='/static/js/lib/jquery-1.12.4.js' />"></script>
-<script src="<c:url value='/static/js/lib/bootstrap.min.js' />"></script>
 
 
 </head>
@@ -44,8 +40,7 @@
 				</form:form>
 			</div>
 			<div id="content">
-				<p>Test comment</p>
-				<p>Test comment</p>
+				<p>Please register to get access for searching properties</p>
 			</div>
 			<div id="footer">
 				<p>Web page made by Umamaheswara Rao</p>

@@ -5,6 +5,6 @@
 
 <!-- Left side column. contains the LOGO and side bar -->
 
-<aside class="main-sidebar">
+<!-- <aside class="main-sidebar"> -->
   
 </aside>

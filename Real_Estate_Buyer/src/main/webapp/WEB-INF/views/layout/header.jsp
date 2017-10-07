@@ -4,15 +4,8 @@
 <fmt:setBundle basename="application" />
 
 <style>
-.companyImage-upload>input {
-	display: none;
-}
 body{
 	background-color: #15a74c;
 }
 </style>
 
-<header class="main-header">
-HEADER
-
-</header>

@@ -19,15 +19,14 @@
 <body>
     <div class="login-wraper">
 
-        <div class="card">
-            <img src="<c:url value='/static/img/logo.png' />" alt="logo" class="logo">
+        <div class="card center-login">
             <div class="login-head">
-                <img src="<c:url value='/static/img/user-icon.png' />" width="48" height="48">Login here
+                <%-- <img src="<c:url value='/static/img/user-icon.png' />" width="48" height="48"> --%>Login here
             </div>
             <div class="main-inner">
                 <c:out value="${logout}" />
                 
-                <form class="form padding-top25"  action="<c:url value='j_spring_security_check' />" method='POST' onsubmit="return emailIdLoginCheck();" >
+                <form class="form padding-top30"  action="<c:url value='j_spring_security_check' />" method='POST' onsubmit="return emailIdLoginCheck();" >
                     <span style="color: green;"> ${mailSuccessMsg} </span>
                      <div id="loginCheckMSG" class="error-msg">
                         <c:if test="${param.authfailed != null}">
@@ -44,26 +43,20 @@
                             style="visibility: hidden; display: none;">Remind me</a>
                         <div class="clearfix"></div>
                        <!--  <input type="text" class="form-control input-sm" id="emailId" autofocus="autofocus" name="emailId" placeholder="Enter Email ID" required> -->
-                      <input type="text" name="j_username" placeholder="Enter Email ID" id="emailId" autofocus="autofocus" name="emailId">
+                      <input type="text" class="width280" name="j_username" placeholder="Enter Email ID" id="emailId" autofocus="autofocus" name="emailId">
                     </div>
                     <div class="form-group">
                         <label class="managelabel">Password</label> <a href="javascript:void(0)" class="rem-link pull-right"
                             style="visibility: hidden; display: none;">Reset</a>
                         <div class="clearfix"></div>
                       <!--   <input type="password" class="form-control input-sm" id="password" name="password" placeholder="Enter Password" required> -->
-                      <input type="password" name="j_password" id="password" name="password" placeholder="Enter Password" required>
+                      <input type="password" class="width280" name="j_password" id="password" name="password" placeholder="Enter Password" required>
                     </div>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                     <div class="form-group">
                         <button type="submit" class="btn btn-block dark-btn text-normalcase">
-                            <img src="<c:url value='/static/img/refresh-icon.png' />" width="18" height="20" class="refresh-icon">Login
+                            Login
                         </button>
-                    </div>
-                    <div class="form-group">
-                        <a href="<c:url value="/forgotPassword" />" class="forgotlink">Forgot Password</a>
-                    </div>
-                     <div class="form-group">
-                        <a href="<c:url value="nonsecure/uploadDoc" />" class="forgotlink">Upload</a>
                     </div>
                 </form>
             </div>

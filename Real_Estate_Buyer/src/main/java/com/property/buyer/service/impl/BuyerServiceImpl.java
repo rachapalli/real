@@ -1,5 +1,6 @@
 package com.property.buyer.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +17,9 @@ import com.property.buyer.ajax.AjaxRequest;
 import com.property.buyer.ajax.AjaxResponse;
 import com.property.buyer.dao.BuyerDao;
 import com.property.buyer.dao.IBaseDao;
+import com.property.buyer.dto.PropertyDTO;
 import com.property.buyer.dto.RegisterBuyersDTO;
+import com.property.buyer.model.Address;
 import com.property.buyer.model.Property;
 import com.property.buyer.model.Users;
 import com.property.buyer.service.BuyerService;
@@ -34,12 +37,13 @@ public class BuyerServiceImpl implements BuyerService {
 	private BuyerDao buyerDao;
 	@Autowired
 	private SendMail sender;
-	/*@Value("${mail.from}")
-	private String from;
-	@Value("${pmt.to.cust.subject}")
-	private String subject;
-	@Value("${pmt.to.cust.msg}")
-	private String msg;*/
+	/*
+	 * @Value("${mail.from}") private String from;
+	 * 
+	 * @Value("${pmt.to.cust.subject}") private String subject;
+	 * 
+	 * @Value("${pmt.to.cust.msg}") private String msg;
+	 */
 
 	@Transactional
 	public boolean saveBuyer(final RegisterBuyersDTO registerBuyersDTO) {
@@ -80,19 +84,35 @@ public class BuyerServiceImpl implements BuyerService {
 	public void searchProperty(ModelMap map, AjaxRequest ajaxRequest, AjaxResponse ajaxResponse) {
 		final List<Property> properties = buyerDao.searchProperty(map, ajaxRequest, ajaxResponse);
 		if (properties != null && !properties.isEmpty()) {
-			ajaxResponse.setData(properties);
+			final List<PropertyDTO> propertyDTOs = new ArrayList<>();
+			properties.forEach(property -> {
+				final Address address = property.getAddress();
+				PropertyDTO dto = new PropertyDTO();
+				dto.setDescription(property.getDescription());
+				dto.setNoOfBathRooms(property.getNoOfBathRooms());
+				dto.setNoOfBedRooms(property.getNoOfBedRooms());
+				dto.setPrice(property.getPrice());
+				dto.setPropertyName(property.getPropertyName());
+				dto.setPostedBy(property.getPostedBy());
+				dto.setPlotArea(property.getPlotArea());
+				dto.setCity(address.getCity().getCityName());
+				dto.setCountry(address.getCountry());
+				dto.setState(address.getState().getState());
+				propertyDTOs.add(dto);
+			});
+
+			ajaxResponse.setData(propertyDTOs);
 		}
 	}
 
 	@Override
 	@Transactional
 	public boolean contactSeller(ModelMap map, AjaxRequest ajaxRequest) {
-		/*try {
-			//sender.send(from, ajaxRequest.getEmail(), subject, ajaxRequest.getMessage());
-			return true;
-		} catch (MessagingException e) {
-			//TODO EXception Handling
-		}*/
+		/*
+		 * try { //sender.send(from, ajaxRequest.getEmail(), subject,
+		 * ajaxRequest.getMessage()); return true; } catch (MessagingException
+		 * e) { //TODO EXception Handling }
+		 */
 		return true;
 	}
 }

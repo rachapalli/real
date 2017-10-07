@@ -9,7 +9,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 search-bar">
 				<form id="buyerLookupForm">
 					<div class="inner-box">
 						<div class="row">

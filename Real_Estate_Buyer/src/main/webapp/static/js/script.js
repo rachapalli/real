@@ -145,9 +145,8 @@ function emailIdLoginCheck() {
         		url 		: fetchUrl,
         		requestObj  : request,
         		onSuccess 	: function(req, status, res) {
-        			alert(res);
         			if (res != null && res != '' && res != undefined) {
-        				alert(res);
+        				alert(res.data);
         			}
         		},
         		onError : function(req, status, error) {

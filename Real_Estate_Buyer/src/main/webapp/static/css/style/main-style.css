@@ -1,15 +1,17 @@
 .body {
 	background-color: #525252;
 }
+
 .body-bg {
-	background:#075a9c;
+	background: #075a9c;
 }
+
 .centered-form {
-	margin-top: 60px;
+	margin-top: 150px;
 }
 
 .centered-form .panel {
-	background: rgba(255, 255, 255, 0.8);
+	background: rgba(250, 250, 250, 0.8);
 	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
 }
 
@@ -22,10 +24,11 @@
 	min-height: 100vh; /* These two lines are counted as one :-)       */
 	display: flex;
 	align-items: center;
+	font-size: 20px;
 }
 
 .login-head {
-	padding: 15px 30px;
+	padding: 30px 30px;
 	color: #fff;
 	font-size: 27px;
 	background: #15a74c;
@@ -35,11 +38,17 @@
 
 .login-wraper .card .main-inner {
 	background: #fff;
-	padding: 0 30px 30px 30px;
+	padding: 0 60px 30px 30px;
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 }
 
+.center-login {
+	width: 380;
+	margin: 0 auto;
+}
+
+}
 .form .form-group {
 	margin-bottom: 0;
 	padding-top: 25px;
@@ -49,8 +58,24 @@
 	padding-top: 0 !important;
 }
 
-.padding-top25 {
-	padding-top: 25px !important;
+.search-bar {
+	position: absolute;
+    width: 700px;
+    height: 200px;
+    /* z-index: 15; */
+    top: 13%;
+    left: 35%;
+    margin: 25px 0 0 -150px;
+    /* width: 500px; */
+    
+}
+
+.padding-top30 {
+	padding-top: 40px !important;
+}
+
+.width280{
+	width: 290px
 }
 
 .error-msg, .help-block {
@@ -121,7 +146,7 @@ a:hover, a:active {
 /* you can structure your code's white space so that it is as readable for when you come back in the future or for other people to read and edit quickly */
 body {
 	font-family: arial;
-	font-size: 80%;
+	font-size: 100%;
 	line-height: 1.2em;
 	width: 100%;
 	margin: 0;
@@ -137,10 +162,11 @@ body {
 	margin-top: 5px;
 	font-family: georgia;
 }
+
 #logo h1 {
-	text-align:center;
-	font-size:28px;
-	color:#fff;
+	text-align: center;
+	font-size: 28px;
+	color: #fff;
 }
 /* but try and be as concise as possible */
 #nav {
@@ -175,22 +201,24 @@ body {
 }
 
 #content {
-	margin: 30px 0;
-	background: white;
+	margin: 100px 0;
+	background: #fff;
 	padding: 20px;
 	clear: both;
+	text-align: center;
+	font-size: 28px;
 }
 
 #footer {
-	border-bottom: 1px #ccc solid;
-	margin-bottom: 10px;
+	border-bottom: 4px #ccc solid;
+	margin-bottom: 0px;
 }
 
 #footer p {
 	text-align: right;
 	text-transform: uppercase;
-	font-size: 80%;
-	color: grey;
+	font-size: 100%;
+	color: #F0F8FF;
 }
 
 /* multiple styles seperated by a , */
@@ -199,222 +227,232 @@ body {
 }
 
 .invalid-error-msg {
-    color: red;
-    font-size: 12px;
-    margin: 0;
-    opacity: .7;
-    left: 0;
-    position: absolute
-}
-#flipkart-navbar {
-    background-color: #2874f0;
-    color: #FFFFFF;
+	color: red;
+	font-size: 12px;
+	margin: 0;
+	opacity: .7;
+	left: 0;
+	position: absolute
 }
 
-.row1{
-    padding-top: 10px;
+#flipkart-navbar {
+	background-color: #2874f0;
+	color: #FFFFFF;
+}
+
+.row1 {
+	padding-top: 10px;
 }
 
 .row2 {
-    padding-bottom: 20px;
+	padding-bottom: 20px;
 }
 
 .flipkart-navbar-input {
-    padding: 11px 16px;
-    border-radius: 2px 0 0 2px;
-    border: 0 none;
-    outline: 0 none;
-    font-size: 15px;
+	padding: 11px 16px;
+	border-radius: 2px 0 0 2px;
+	border: 0 none;
+	outline: 0 none;
+	font-size: 15px;
 }
 
 .flipkart-navbar-button {
-    background-color: #ffe11b;
-    border: 1px solid #ffe11b;
-    border-radius: 0 2px 2px 0;
-    color: #565656;
-    padding: 10px 0;
-    height: 43px;
-    cursor: pointer;
+	background-color: #ffe11b;
+	border: 1px solid #ffe11b;
+	border-radius: 0 2px 2px 0;
+	color: #565656;
+	padding: 10px 0;
+	height: 43px;
+	cursor: pointer;
 }
 
 .cart-button {
-    background-color: #2469d9;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .23), inset 1px 1px 0 0 hsla(0, 0%, 100%, .2);
-    padding: 10px 0;
-    text-align: center;
-    height: 41px;
-    border-radius: 2px;
-    font-weight: 500;
-    width: 120px;
-    display: inline-block;
-    color: #FFFFFF;
-    text-decoration: none;
-    color: inherit;
-    border: none;
-    outline: none;
+	background-color: #2469d9;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .23), inset 1px 1px 0 0
+		hsla(0, 0%, 100%, .2);
+	padding: 10px 0;
+	text-align: center;
+	height: 41px;
+	border-radius: 2px;
+	font-weight: 500;
+	width: 120px;
+	display: inline-block;
+	color: #FFFFFF;
+	text-decoration: none;
+	color: inherit;
+	border: none;
+	outline: none;
 }
 
-.cart-button:hover{
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
+.cart-button:hover {
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
 }
 
 .cart-svg {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    margin-right: 8px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	margin-right: 8px;
 }
 
 .item-number {
-    border-radius: 3px;
-    background-color: rgba(0, 0, 0, .1);
-    height: 20px;
-    padding: 3px 6px;
-    font-weight: 500;
-    display: inline-block;
-    color: #fff;
-    line-height: 12px;
-    margin-left: 10px;
+	border-radius: 3px;
+	background-color: rgba(0, 0, 0, .1);
+	height: 20px;
+	padding: 3px 6px;
+	font-weight: 500;
+	display: inline-block;
+	color: #fff;
+	line-height: 12px;
+	margin-left: 10px;
 }
 
 .upper-links {
-    display: inline-block;
-    padding: 0 11px;
-    line-height: 23px;
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: 0;
-    color: inherit;
-    border: none;
-    outline: none;
-    font-size: 12px;
+	display: inline-block;
+	padding: 0 11px;
+	line-height: 23px;
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: 0;
+	color: inherit;
+	border: none;
+	outline: none;
+	font-size: 12px;
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 0px;
+	position: relative;
+	display: inline-block;
+	margin-bottom: 0px;
 }
 
 .dropdown:hover {
-    background-color: #fff;
+	background-color: #fff;
 }
 
 .dropdown:hover .links {
-    color: #000;
+	color: #000;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+	display: block;
 }
 
 .dropdown .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    display: none;
-    background-color: #fff;
-    color: #333;
-    left: 0px;
-    border: 0;
-    border-radius: 0;
-    box-shadow: 0 4px 8px -3px #555454;
-    margin: 0;
-    padding: 0px;
+	position: absolute;
+	top: 100%;
+	display: none;
+	background-color: #fff;
+	color: #333;
+	left: 0px;
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0 4px 8px -3px #555454;
+	margin: 0;
+	padding: 0px;
 }
 
 .links {
-    color: #fff;
-    text-decoration: none;
+	color: #fff;
+	text-decoration: none;
 }
 
 .links:hover {
-    color: #fff;
-    text-decoration: none;
+	color: #fff;
+	text-decoration: none;
 }
 
 .profile-links {
-    font-size: 12px;
-    font-family: 'Roboto', sans-serif;
-    border-bottom: 1px solid #e9e9e9;
-    box-sizing: border-box;
-    display: block;
-    padding: 0 11px;
-    line-height: 23px;
+	font-size: 12px;
+	font-family: 'Roboto', sans-serif;
+	border-bottom: 1px solid #e9e9e9;
+	box-sizing: border-box;
+	display: block;
+	padding: 0 11px;
+	line-height: 23px;
 }
 
-.profile-li{
-    padding-top: 2px;
+.profile-li {
+	padding-top: 2px;
 }
 
 .largenav {
-    display: none;
+	display: none;
 }
 
-.smallnav{
-    display: block;
+.smallnav {
+	display: block;
 }
 
-.smallsearch{
-    margin-left: 15px;
-    margin-top: 15px;
+.smallsearch {
+	margin-left: 15px;
+	margin-top: 15px;
 }
 
-.menu{
-    cursor: pointer;
+.menu {
+	cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
-    .largenav {
-        display: block;
-    }
-    .smallnav{
-        display: none;
-    }
-    .smallsearch{
-        margin: 0px;
-    }
+	.largenav {
+		display: block;
+	}
+	.smallnav {
+		display: none;
+	}
+	.smallsearch {
+		margin: 0px;
+	}
 }
 
 /*Sidenav*/
 .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    box-shadow: 0 4px 8px -3px #555454;
-    padding-top: 0px;
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	overflow-x: hidden;
+	transition: 0.5s;
+	box-shadow: 0 4px 8px -3px #555454;
+	padding-top: 0px;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s
 }
 
 .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    color: #fff;        
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+	color: #fff;
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav a {font-size: 18px;}
+	.sidenav a {
+		font-size: 18px;
+	}
 }
 
-.sidenav-heading{
-    font-size: 36px;
-    color: #fff;
+.sidenav-heading {
+	font-size: 36px;
+	color: #fff;
+}
+
+.right-bottom {
+	position: absolute;
+    bottom: 0px;
+    right: 20px;
 }
