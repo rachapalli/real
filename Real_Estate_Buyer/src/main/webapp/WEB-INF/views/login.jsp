@@ -9,8 +9,8 @@
 <link href="<c:url value='/static/css/style/main-style.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/lib/buttons.dataTables.min.css'/>" rel="stylesheet"></link>
 
-<script src="<c:url value='/static/js/libs/jQuery-2.1.4.min.js' />"></script>
-<script src="<c:url value='/static/js/libs/jquery-1.12.4.js' />"></script>
+<script src="<c:url value='/static/js/lib/jQuery-2.1.4.min.js' />"></script>
+<script src="<c:url value='/static/js/lib/jquery-1.12.4.js' />"></script>
 <script src="<c:url value='/static/js/script.js' />"></script>
 
 <c:url var="loginUrl" value="/login" />

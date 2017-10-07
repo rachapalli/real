@@ -78,7 +78,7 @@
                     onSelect : function(dateText, inst) {
                         if (inst.id === "nextPayday") {
                             if (typeof (setLastCheckDate) == "function") {
-                                setLastCheckDate(dateText);
+                                //setLastCheckDate(dateText);
                             }
                         }
                         var $this = $(this);

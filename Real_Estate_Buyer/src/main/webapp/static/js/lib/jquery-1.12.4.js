@@ -10586,6 +10586,7 @@ jQuery.fn.load = function( url, params, callback ) {
 	if ( typeof url !== "string" && _load ) {
 		return _load.apply( this, arguments );
 	}
+
 	var selector, type, response,
 		self = this,
 		off = url.indexOf( " " );
@@ -10617,7 +10618,6 @@ jQuery.fn.load = function( url, params, callback ) {
 			// user can override it through ajaxSetup method
 			type: type || "GET",
 			dataType: "html",
-			async: false,
 			data: params
 		} ).done( function( responseText ) {
 

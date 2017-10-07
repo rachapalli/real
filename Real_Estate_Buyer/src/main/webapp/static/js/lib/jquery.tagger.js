@@ -234,7 +234,7 @@
                                             historical : false,
                                             disabled : $(element).prop('disabled'),
                                             sort : index,
-                                            freetext : (this.options.freeTextInput && $(element).val().startsWith(this.options.freeTextPrefix))
+                                            freetext : (this.options.freeTextInput && $(element).val().match("^"+this.options.freeTextPrefix))
                                         };
                                     }, this));
                                 }
@@ -258,7 +258,7 @@
                                                 suggestable : false,
                                                 historical : true,
                                                 disabled : $(element).prop('disabled'),
-                                                freetext : (this.options.freeTextInput && $(element).val().startsWith(this.options.freeTextPrefix))
+                                                freetext : (this.options.freeTextInput && $(element).val().match("^"+this.options.freeTextPrefix))
                                             };
                                         }
                                         // Add tags for any selected options
@@ -279,7 +279,7 @@
                                                 suggestable : false,
                                                 historical : true,
                                                 disabled : $('option[value="' + preselectedTag + '"]', this.element).first().prop('disabled'),
-                                                freetext : (this.options.freeTextInput && preselectedTag.startsWith(this.options.freeTextPrefix))
+                                                freetext : (this.options.freeTextInput && preselectedTag.match("^"+this.options.freeTextPrefix))
                                             };
                                         }
                                         // Add tags for any selected options
@@ -1108,7 +1108,19 @@
                             if (nextPaydayId === "payDayList") {
                                 var temData = $('<div>').html(tagData.key).text();
                                 if (typeof (setLastCheckDate) == "function") {
-                                    setLastCheckDate(temData);
+                                    setLastCheckDate(temData,"payFrequency");
+                                }
+                            }
+                            if (nextPaydayId === "loanNextPayDay") {
+                                var temData = $('<div>').html(tagData.key).text();
+                                if (typeof (setLastCheckDate) == "function") {
+                                    setLastCheckDate(temData,"loanPayFreq");
+                                }
+                            }
+                            if (nextPaydayId === "payDates") {
+                                var temData = $('<div>').html(tagData.key).text();
+                                if (typeof (setLastCheckDate) == "function") {
+                                    setLastCheckDate(temData,"payFrequencyInc");
                                 }
                             }
                             if (this._isAlreadyDisplayingTag(tagID)) {

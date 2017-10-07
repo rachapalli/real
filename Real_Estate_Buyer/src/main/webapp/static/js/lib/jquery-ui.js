@@ -4474,9 +4474,21 @@
                                     onSelect = this._get(inst, "onSelect");
                                     if (inst.id === "nextPayday") {
                                         if (typeof (setLastCheckDate) == "function") {
-                                            setLastCheckDate(dateStr);
+                                            setLastCheckDate(dateStr,"payFrequency");
                                         }
                                     }
+                                    if (inst.id === "loanNextPayDay") {
+                                        if (typeof (setLastCheckDate) == "function") {
+                                            setLastCheckDate(dateStr,"loanPayFreq");
+                                        }
+                                    }
+                                    if (inst.id === "payDates") {
+                                        if (typeof (setLastCheckDate) == "function") {
+                                            setLastCheckDate(dateStr,"payFrequencyInc");
+                                        }
+                                    }
+                                    
+                                    
                                     if (onSelect) {
                                         onSelect.apply((inst.input ? inst.input[0] : null), [ dateStr, inst ]); // trigger custom callback
                                     } else if (inst.input) {

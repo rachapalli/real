@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <fmt:setBundle basename="application" />
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,7 +14,6 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 <link href="<c:url value='/static/css/lib/bootstrap.min.css' />" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/style/cashbak.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/style/materialadmin.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/lib/font-awesome.min.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/lib/theme.css' />" rel="stylesheet"></link>
@@ -37,7 +37,6 @@
 <link href="<c:url value='/static/css/lib/loader1.css'/>" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/lib/loader2.css'/>" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/lib/buttons.dataTables.min.css'/>" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/lib/jquery-editable-select.css'/>" rel="stylesheet"></link>
 <script src="<c:url value='/static/js/lib/jquery.mCustomScrollbar.concat.min.js' />"></script>
 <link href="<c:url value='/static/css/lib/jquery.mCustomScrollbar.css'/>" rel="stylesheet"></link>
     <!-- Application Java Script -->
@@ -77,79 +76,19 @@
     <script src="<c:url value='/static/js/lib/loader.js' />"></script>
     <script src="<c:url value='/static/js/lib/highcharts.js' />"></script>
     <script src="<c:url value='/static/js/lib/exporting.js' />"></script>
+    <script src="<c:url value='/static/js/general_ajax_call.js' />"></script>
     <script src="<c:url value='/static/js/script.js' />"></script>
     <!-- Application Java Script -->
 </head>
 
-<input type="hidden" id="loanApprovalDeclInp" value="0"/>
-<input type="hidden" id="chkLockMethodRun" value="0"/>
-<input type="hidden" id="chkLockReleased" value="0"/>
-<input type="hidden" id="activeTabName" value="${not empty activeTab  ? activeTab : 'personalTab' } "/>
-
 <body class="hold-transition skin-blue sidebar ">
-    <input type="hidden" name="baseUrl" id="baseUrl" value="${pageContext.request.contextPath}" />
+    <input type="hidden" name="baseUrl" id="baseUrl" value="${request.contextPath}" />
     <div class="wrapper">
         <tiles:insertAttribute name="header" />
         <tiles:insertAttribute name="menu" />
         <tiles:insertAttribute name="body" />
         <tiles:insertAttribute name="footer" />
     </div>
-    <!-- myModalUpload to  upload image-->
-    <div class="modal fade" id="myModalUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabelUpload">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabelUpload">
-                        <fmt:message key="msg.logo.upload" />
-                    </h4>
-                </div>
-                
-                <c:url var="updateCustomer" value="${request.contextPath}/cash/updatecustomer" />
-                <form id="hiddenEditForm" action="${updateCustomer}" method="post">
-					<input type="hidden" name="loanId" id="hiddenEditField">
-					<input type="hidden" name="assignedLead" value="false" id="hiddenEditTaskStatusField">
-				    <input type="hidden" name="activeTab" id="hiddenActiveTab" value="personalTab">
-				</form>
-
-                <form  id="uploadEmpImgForm"   style="padding: 20px;">
-                    <div class="modal-body">
-                        <center>
-                            <input type="file" name="file" id="uploadEmpImageFile" class="btn btn-success btn-sm" />
-                        </center>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                            <fmt:message key="msg.logo.upload.cancel" />
-                        </button>
-                        <%--   <input type="submit" class="btn btn-success" title='<fmt:message key="msg.logo.upload.click" />' value="Upload"/> --%>
-                        <button type="button" id="uploadEmpImgBtn" data-dismiss="modal" class="btn btn-success">Upload</button>
-
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-	 <!--Start of Customer Summary Details Popup -->
-	 <div class="modal fade bs-example-modal-xxlg" id="custSummaryPopup" tabindex="-1" role="dialog" aria-labelledby="custSummaryPopupLabel">
-	     <div class="modal-dialog  modal-xxlg" role="document">
-	         <div class="modal-content">
-	             <div class="modal-header">
-	                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	                     <span aria-hidden="true">&times;</span>
-	                 </button>
-	                 <h4 class="modal-title" id="custSummaryPopupLabel">Customer Summary</h4>  
-	             </div>
-	             <div class="modal-body">              
-	       			<div id="custSummDiv"></div>              
-	             </div>                    
-	         </div>
-	     </div>
-	 </div>
-	 <!--End of Customer Summary Details Popup -->
-
-
-
     
     <div id="face" class="fixed-wrapper">
         <div class="absOut">
@@ -160,5 +99,5 @@
         </div>
     </div>
 </body>
- <script src="<c:url value='/static/js/script/utilityEvents.js' />"></script>
+
 </html>

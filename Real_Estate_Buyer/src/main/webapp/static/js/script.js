@@ -1,3 +1,6 @@
+var baseUrl = $("#baseUrl").val();
+$(document).ready(function() {
+});
 
 function validateLoginForm() {
 	var userName = $("#loginUserId").val(); 
@@ -130,4 +133,25 @@ function emailIdLoginCheck() {
     		$("#errorDivrgPhone").text("");
     	});
     	
+    }
+    
+    function fetchResults(obj,fetchUrl){
+    	var searchItem = $("#buyerLookupForm  #searchItem").val();
+    	alert(searchItem);
+    	if(searchItem){
+    		var request = {};
+        	request.propertyName = searchItem;
+        	makeJsonAjaxCall({
+        		url 		: fetchUrl,
+        		requestObj  : request,
+        		onSuccess 	: function(req, status, res) {
+        			alert(res);
+        			if (res != null && res != '' && res != undefined) {
+        				alert(res);
+        			}
+        		},
+        		onError : function(req, status, error) {
+        		}
+        	});
+    	}
     }
