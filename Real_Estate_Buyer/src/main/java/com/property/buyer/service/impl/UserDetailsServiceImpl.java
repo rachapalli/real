@@ -43,7 +43,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(final String userName) throws UsernameNotFoundException {
 
 		final Users user = buyerService.getUserLoginId(userName);
-		if (user != null && !user.getType().equalsIgnoreCase(ApplicationConstants.BUYUER)) {
+		if (user != null && user.getType().equalsIgnoreCase(ApplicationConstants.BUYUER)) {
 			return new org.springframework.security.core.userdetails.User(user.getUsername(),
 					EncryptionUtility.decrypt(user.getPassword()), true, true, true, true, getGrantedAuthorities(user));
 		} else {

@@ -45,7 +45,7 @@ public class BuyersController {
 	@Autowired
 	private BuyerService buyerService;
 	
-	@RequestMapping(value = "/register")
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView register(final HttpServletRequest request, final ModelMap model) {
 		final ModelAndView modelAndView = new ModelAndView("register");
 		modelAndView.addObject("registerBuyer", new RegisterBuyersDTO());

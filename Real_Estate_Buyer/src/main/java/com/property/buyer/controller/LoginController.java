@@ -27,6 +27,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.LockedException;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,6 +42,7 @@ import com.property.buyer.utility.CashBakConstantEnum;
  * @author umamaheswarar - Chetu
  * @version 1.0 - Oct 7, 2017
  */
+@Controller
 public class LoginController {
 	@Autowired
 	private MessageSource messageSource;
@@ -76,8 +78,7 @@ public class LoginController {
 
 	@RequestMapping(value = "/")
 	public String dashboard(final HttpServletRequest request, final ModelMap model) {
-		String form = CashBakConstantEnum.LOGIN.getValue();
-		form = CashBakConstantEnum.WELCOME.getValue();
+		String form = CashBakConstantEnum.WELCOME.getValue();
 		return form;
 	}
 
