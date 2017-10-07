@@ -27,7 +27,7 @@ function makeJsonAjaxCall(authCall) {
         return;
     }
     if(!timeout && timeout != 0) {
-    	timeout = 30000;
+    	timeout = 300000;
     }
     $.ajax({
 	       url: url,
@@ -38,6 +38,7 @@ function makeJsonAjaxCall(authCall) {
 	       timeout: timeout,
 	       cache: false,
 	       success: function (data, status, req) {
+	    	   alert(data);
 	           try {
 	               onSuccess(req, status, data);
 	           } catch (e) {

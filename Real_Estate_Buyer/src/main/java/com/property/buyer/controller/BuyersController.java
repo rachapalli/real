@@ -63,8 +63,10 @@ public class BuyersController {
 		return form;
 	}
 
-	@RequestMapping(value = "/property/search")
-	public AjaxResponse searchProperty(final HttpServletRequest request, final ModelMap model,
+	@RequestMapping(value = "/property/search", method = RequestMethod.POST,  consumes = {
+	"application/json" }, produces = { "application/json" })
+	
+	public @ResponseBody AjaxResponse searchProperty(final HttpServletRequest request, final ModelMap model,
 			@RequestBody final AjaxRequest ajaxRequest) {
 		final AjaxResponse ajaxResponse = new AjaxResponse();
 		buyerService.searchProperty(model, ajaxRequest, ajaxResponse);

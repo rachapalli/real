@@ -59,16 +59,18 @@ public class BuyerDaoImpl implements BuyerDao {
 	}
 
 	@Override
-	public List<Property> searchProperty(ModelMap map, AjaxRequest ajaxRequest, AjaxResponse ajaxResponse) {
-		Criteria criteria = propertyBaseDao.getCurrentSession().createCriteria(Property.class, "property");
+	public List<Property> searchProperty(ModelMap map, AjaxRequest ajaxRequest,
+			AjaxResponse ajaxResponse) {
+		Criteria criteria = propertyBaseDao.getCurrentSession().createCriteria(
+				Property.class, "property");
 		criteria.createAlias("property.address", "address");
 		criteria.createAlias("address.state", "state");
 		criteria.createAlias("address.city", "city");
-		criteria.add(Restrictions.like("property.propertyName", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE));
-		criteria.add(Restrictions.like("property.description", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE));
-		criteria.add(Restrictions.like("address.descrizipption", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE));
-		criteria.add(Restrictions.like("state.state", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE));
-		criteria.add(Restrictions.like("city.cityName", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE));
+		criteria.add(Restrictions.or(
+				Restrictions.ilike("property.propertyName", ajaxRequest.getPropertyName(),MatchMode.ANYWHERE),
+				Restrictions.ilike("property.description", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE),
+				Restrictions.ilike("state.state", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE),
+				Restrictions.ilike("city.cityName", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE)));
 		@SuppressWarnings("unchecked")
 		final List<Property> properties = criteria.list();
 		return properties;
