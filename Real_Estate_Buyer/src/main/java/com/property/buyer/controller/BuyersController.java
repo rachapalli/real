@@ -18,9 +18,6 @@
 
 package com.property.buyer.controller;
 
-import java.io.IOException;
-import java.text.ParseException;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -28,23 +25,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.property.buyer.ajax.AjaxRequest;
+import com.property.buyer.ajax.AjaxResponse;
 import com.property.buyer.dto.RegisterBuyersDTO;
 import com.property.buyer.service.BuyerService;
 import com.property.buyer.utility.CashBakConstantEnum;
 
 @Controller
-@RequestMapping(value="/buyer")
+@RequestMapping(value = "/buyer")
 public class BuyersController {
 
 	private static final Logger LOG = Logger.getLogger(BuyersController.class);
 
 	@Autowired
 	private BuyerService buyerService;
-	
+
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView register(final HttpServletRequest request, final ModelMap model) {
 		final ModelAndView modelAndView = new ModelAndView("register");
@@ -53,14 +53,20 @@ public class BuyersController {
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveEmployeeData(final ModelMap model, @ModelAttribute RegisterBuyersDTO registerBuyers)
-			throws ParseException, IOException {
+	public String saveEmployeeData(final ModelMap model, @ModelAttribute RegisterBuyersDTO registerBuyers) {
 		String form = "";
-		if (buyerService.saveBuyer(registerBuyers)){
+		if (buyerService.saveBuyer(registerBuyers)) {
 			form = CashBakConstantEnum.LOGIN.getValue();
-		}	
+		}
 
 		return form;
 	}
-	
+
+	@RequestMapping(value = "/property/search")
+	public AjaxResponse searchProperty(final HttpServletRequest request, final ModelMap model, @RequestBody final AjaxRequest ajaxRequest) {
+		final AjaxResponse ajaxResponse = new AjaxResponse();
+		buyerService.searchProperty(model, ajaxRequest, ajaxResponse);
+		return ajaxResponse;
+	}
+
 }

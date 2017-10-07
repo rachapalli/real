@@ -1,14 +1,19 @@
 package com.property.buyer.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.ModelMap;
 
+import com.property.buyer.ajax.AjaxRequest;
+import com.property.buyer.ajax.AjaxResponse;
 import com.property.buyer.dao.BuyerDao;
 import com.property.buyer.dao.IBaseDao;
 import com.property.buyer.dto.RegisterBuyersDTO;
+import com.property.buyer.model.Property;
 import com.property.buyer.model.Users;
 import com.property.buyer.service.BuyerService;
 import com.property.buyer.utility.ApplicationConstants;
@@ -27,7 +32,7 @@ public class BuyerServiceImpl implements BuyerService {
 	@Transactional
 	public boolean saveBuyer(final RegisterBuyersDTO registerBuyersDTO) {
 		if (buyerDao.fetchExistingBuyers(registerBuyersDTO.getEmail(), ApplicationConstants.BUYUER)) {
-			//TODO
+			// TODO
 		}
 		final Users buyers = new Users();
 		buyers.setCreateDate(new Date());
@@ -56,5 +61,14 @@ public class BuyerServiceImpl implements BuyerService {
 			Utility.getLogger(getClass()).error("Exception occurs at Login", e);
 		}
 		return null;
+	}
+
+	@Override
+	@Transactional
+	public void searchProperty(ModelMap map, AjaxRequest ajaxRequest, AjaxResponse ajaxResponse) {
+		final List<Property> properties = buyerDao.searchProperty(map, ajaxRequest, ajaxResponse);
+		if (properties != null && !properties.isEmpty()){
+			ajaxResponse.setData(properties);
+		}
 	}
 }

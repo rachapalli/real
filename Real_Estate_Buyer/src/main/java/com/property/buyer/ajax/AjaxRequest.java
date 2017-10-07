@@ -18,6 +18,7 @@
 package com.property.buyer.ajax;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * This class is used to keep ajax request attribute values.
@@ -26,18 +27,15 @@ import java.io.Serializable;
  * @version 1.0 - Oct 05, 2017
  */
 
-public class AjaxRequest implements Serializable{
+public class AjaxRequest implements Serializable {
 
 	/** long Short Description */
 	private static final long serialVersionUID = -5955085522435056314L;
-	private String taskStatus;
-	private long customerId;
-	private long employeeId;
-	private String taskLead;
-	private long storeId;
-	private long loanId;
-	private String taskId;
-	private String bankName;
+	private String propertyName;
+	private BigDecimal price;
+	private String city;
+	private String state;
+	private String street;
 
 	/**
 	 * 
@@ -47,68 +45,44 @@ public class AjaxRequest implements Serializable{
 		super();
 	}
 
-	public String getTaskStatus() {
-		return taskStatus;
+	public String getPropertyName() {
+		return propertyName;
 	}
 
-	public void setTaskStatus(String taskStatus) {
-		this.taskStatus = taskStatus;
+	public void setPropertyName(String propertyName) {
+		this.propertyName = propertyName;
 	}
 
-	public long getCustomerId() {
-		return customerId;
+	public BigDecimal getPrice() {
+		return price;
 	}
 
-	public void setCustomerId(long customerId) {
-		this.customerId = customerId;
+	public void setPrice(BigDecimal price) {
+		this.price = price;
 	}
 
-	public long getEmployeeId() {
-		return employeeId;
+	public String getCity() {
+		return city;
 	}
 
-	public void setEmployeeId(long employeeId) {
-		this.employeeId = employeeId;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public String getTaskLead() {
-		return taskLead;
+	public String getState() {
+		return state;
 	}
 
-	public void setTaskLead(String taskLead) {
-		this.taskLead = taskLead;
+	public void setState(String state) {
+		this.state = state;
 	}
 
-	public long getStoreId() {
-		return storeId;
+	public String getStreet() {
+		return street;
 	}
 
-	public void setStoreId(long storeId) {
-		this.storeId = storeId;
-	}
-
-	public long getLoanId() {
-		return loanId;
-	}
-
-	public void setLoanId(long loanId) {
-		this.loanId = loanId;
-	}
-
-	public String getTaskId() {
-		return taskId;
-	}
-
-	public void setTaskId(String taskId) {
-		this.taskId = taskId;
-	}
-
-	public String getBankName() {
-		return bankName;
-	}
-
-	public void setBankName(String bankName) {
-		this.bankName = bankName;
+	public void setStreet(String street) {
+		this.street = street;
 	}
 
 }

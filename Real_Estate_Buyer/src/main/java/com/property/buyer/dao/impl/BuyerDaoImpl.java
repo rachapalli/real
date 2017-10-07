@@ -17,12 +17,20 @@
  */
 package com.property.buyer.dao.impl;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.ModelMap;
 
+import com.property.buyer.ajax.AjaxRequest;
+import com.property.buyer.ajax.AjaxResponse;
 import com.property.buyer.dao.BuyerDao;
 import com.property.buyer.dao.IBaseDao;
+import com.property.buyer.model.Property;
 import com.property.buyer.model.Users;
 
 /**
@@ -37,15 +45,33 @@ public class BuyerDaoImpl implements BuyerDao {
 
 	@Autowired
 	private IBaseDao<Users> usersBaseDao;
+	@Autowired
+	private IBaseDao<Property> propertyBaseDao;
 
 	@Override
 	public boolean fetchExistingBuyers(String userName, String type) {
-		final Users user = (Users) usersBaseDao.getCurrentSession().createCriteria(Users.class).add(Restrictions.eq("username", userName))
-				.add(Restrictions.eq("type", type)).uniqueResult();
+		final Users user = (Users) usersBaseDao.getCurrentSession().createCriteria(Users.class)
+				.add(Restrictions.eq("username", userName)).add(Restrictions.eq("type", type)).uniqueResult();
 		if (user != null) {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public List<Property> searchProperty(ModelMap map, AjaxRequest ajaxRequest, AjaxResponse ajaxResponse) {
+		Criteria criteria = propertyBaseDao.getCurrentSession().createCriteria(Property.class, "property");
+		criteria.createAlias("property.address", "address");
+		criteria.createAlias("address.state", "state");
+		criteria.createAlias("address.city", "city");
+		criteria.add(Restrictions.like("property.propertyName", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE));
+		criteria.add(Restrictions.like("property.description", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE));
+		criteria.add(Restrictions.like("address.descrizipption", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE));
+		criteria.add(Restrictions.like("state.state", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE));
+		criteria.add(Restrictions.like("city.cityName", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE));
+		@SuppressWarnings("unchecked")
+		final List<Property> properties = criteria.list();
+		return properties;
 	}
 
 }
