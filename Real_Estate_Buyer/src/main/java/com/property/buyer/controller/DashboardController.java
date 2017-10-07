@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.property.buyer.model.Buyers;
+import com.property.buyer.model.Users;
 import com.property.buyer.service.BuyerService;
 import com.property.buyer.utility.ApplicationConstants;
 import com.property.buyer.utility.Utility;
@@ -50,7 +50,7 @@ public class DashboardController {
 	@RequestMapping(value = "/dashboard", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView dashboardView(final HttpServletRequest request, final ModelMap model) {
 		final ModelAndView modelView = new ModelAndView("dashboard");
-		Buyers loggedUser = null;
+		Users loggedUser = null;
 		try {
 			final HttpSession httpSession = request.getSession(false);
 

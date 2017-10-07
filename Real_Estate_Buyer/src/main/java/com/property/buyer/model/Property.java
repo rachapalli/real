@@ -18,6 +18,7 @@
 
 package com.property.buyer.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -29,6 +30,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,8 +44,10 @@ import javax.persistence.TemporalType;
 
 @Table(name = "PROPERTY")
 @Entity
-public class Property {
+public class Property implements Serializable {
 
+	/** long Short Description */
+	private static final long serialVersionUID = -1958902355456120591L;
 	private long id;
 	private String propertyName;
 	private BigDecimal price;
@@ -51,7 +55,6 @@ public class Property {
 	private Date createdDate;
 	private Date updatedDate;
 	private String postedBy;
-	private String email;
 	private String plotArea;
 	private String description;
 	private int noOfBedRooms;
@@ -86,7 +89,7 @@ public class Property {
 		this.price = price;
 	}
 
-	@OneToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="property")
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "property")
 	public Address getAddress() {
 		return address;
 	}
@@ -124,15 +127,6 @@ public class Property {
 		this.postedBy = postedBy;
 	}
 
-	@Column(name = "CONTACT_MAIL")
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	@Column(name = "AREA")
 	public String getPlotArea() {
 		return plotArea;
@@ -167,6 +161,82 @@ public class Property {
 
 	public void setNoOfBathRooms(int noOfBathRooms) {
 		this.noOfBathRooms = noOfBathRooms;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + ((createdDate == null) ? 0 : createdDate.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + noOfBathRooms;
+		result = prime * result + noOfBedRooms;
+		result = prime * result + ((plotArea == null) ? 0 : plotArea.hashCode());
+		result = prime * result + ((postedBy == null) ? 0 : postedBy.hashCode());
+		result = prime * result + ((price == null) ? 0 : price.hashCode());
+		result = prime * result + ((propertyName == null) ? 0 : propertyName.hashCode());
+		result = prime * result + ((updatedDate == null) ? 0 : updatedDate.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Property other = (Property) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (createdDate == null) {
+			if (other.createdDate != null)
+				return false;
+		} else if (!createdDate.equals(other.createdDate))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (id != other.id)
+			return false;
+		if (noOfBathRooms != other.noOfBathRooms)
+			return false;
+		if (noOfBedRooms != other.noOfBedRooms)
+			return false;
+		if (plotArea == null) {
+			if (other.plotArea != null)
+				return false;
+		} else if (!plotArea.equals(other.plotArea))
+			return false;
+		if (postedBy == null) {
+			if (other.postedBy != null)
+				return false;
+		} else if (!postedBy.equals(other.postedBy))
+			return false;
+		if (price == null) {
+			if (other.price != null)
+				return false;
+		} else if (!price.equals(other.price))
+			return false;
+		if (propertyName == null) {
+			if (other.propertyName != null)
+				return false;
+		} else if (!propertyName.equals(other.propertyName))
+			return false;
+		if (updatedDate == null) {
+			if (other.updatedDate != null)
+				return false;
+		} else if (!updatedDate.equals(other.updatedDate))
+			return false;
+		return true;
 	}
 
 }

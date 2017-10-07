@@ -28,8 +28,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.property.buyer.model.Buyers;
+import com.property.buyer.model.Users;
 import com.property.buyer.service.BuyerService;
+import com.property.buyer.utility.ApplicationConstants;
 import com.property.buyer.utility.EncryptionUtility;
 
 @Service
@@ -41,16 +42,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(final String userName) throws UsernameNotFoundException {
 
-		final Buyers user = buyerService.getUserLoginId(userName);
-		if (user != null) {
+		final Users user = buyerService.getUserLoginId(userName);
+		if (user != null && !user.getType().equalsIgnoreCase(ApplicationConstants.BUYUER)) {
 			return new org.springframework.security.core.userdetails.User(user.getUsername(),
 					EncryptionUtility.decrypt(user.getPassword()), true, true, true, true, getGrantedAuthorities(user));
 		} else {
-			throw new UsernameNotFoundException("User does not exists.");
+			throw new UsernameNotFoundException("Seems to be you don't have valid credentials to log in as Buyer");
 		}
 	}
 
-	private List<GrantedAuthority> getGrantedAuthorities(final Buyers user) {
+	private List<GrantedAuthority> getGrantedAuthorities(final Users user) {
 		List<GrantedAuthority> authorities = new ArrayList<>();
 		authorities.add(new SimpleGrantedAuthority(user.getAuthorities()));
 		return authorities;

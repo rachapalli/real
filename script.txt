@@ -7,54 +7,36 @@ INSERT INTO `city` (`id`, `city_name`, `state`) VALUES
 (6, 'Nellore', 1),
 (7, 'Nidadavole', 1),
 (8, 'Nirmal', 1),
-(9, 'Nizamabad', 1);
+(9, 'Nizamabad', 1),
+(10, 'Chennai', 2),
+(11, 'Kochin', 3),
+(12, 'Mysoor', 4);
 
 INSERT INTI `state` (`id`, `state`) VALUES
-(1, 'Andhra Pradesh');
+(1, 'Andhra Pradesh'),
+(2, 'Tamilnadu'),
+(3, 'Kerala'),
+(4, 'Karnataka');
 
-INSERT INTO `real`.`address`
-(`ID`,
-`COUNTRY`,
-`CREATE_DATE`,
-`LATITUDE`,
-`LONGITUDE`,
-`STREET_ADDRESS`,
-`ZIP`,
-`CITY`,
-`STATE`)
-VALUES
-(<{ID: }>,
-<{COUNTRY: }>,
-<{CREATE_DATE: }>,
-<{LATITUDE: }>,
-<{LONGITUDE: }>,
-<{STREET_ADDRESS: }>,
-<{ZIP: }>,
-<{CITY: }>,
-<{STATE: }>);
+INSERT INTO `property` (`ID`, `CREATE_DATE`, `ADDITIONAL_NOTES`, `BATH_ROOMS`, `BED_ROOMS`, `AREA`, `PRICE`, `PROPERTY_NAME`) VALUES
+(1, now(), 'Test Property', 2, 2, '2000 sr fts', 1000000, 'Plot 256'),
+(2, now(), 'Test Property 2', 2, 2, '2010 sq fts', 1000000, 'Plot 257'),
+(3, now(), 'Test Property 3', 2, 2, '2020 sq fts', 1000000, 'Plot 258'),
+(4, now(), 'Test Property 4', 2, 2, '2030 sq fts', 1000000, 'Plot 259'),
+(5, now(), 'Test Property 5', 2, 2, '2040 sq fts', 1000000, 'Plot 255');
 
-INSERT INTO `real`.`property`
-(`ID`,
-`CREATE_DATE`,
-`ADDITIONAL_NOTES`,
-`CONTACT_MAIL`,
-`BATH_ROOMS`,
-`BED_ROOMS`,
-`AREA`,
-`POSTED_BY`,
-`PRICE`,
-`PROPERTY_NAME`,
-`UPDATE_DATE`)
-VALUES
-(<{ID: }>,
-<{CREATE_DATE: }>,
-<{ADDITIONAL_NOTES: }>,
-<{CONTACT_MAIL: }>,
-<{BATH_ROOMS: }>,
-<{BED_ROOMS: }>,
-<{AREA: }>,
-<{POSTED_BY: }>,
-<{PRICE: }>,
-<{PROPERTY_NAME: }>,
-<{UPDATE_DATE: }>);
 
+INSERT INTO `address`
+(`ID`, `COUNTRY`, `CREATE_DATE`, `LATITUDE`, `LONGITUDE`, `STREET_ADDRESS`, `ZIP`, `CITY`, `STATE`) VALUES
+(1, 'INDIA', now(), null, null, '1 st street', 524218, 1, 1),
+(2, 'INDIA', now(), null, null, '2 nd street', 524218, 10, 2),
+(3, 'INDIA', now(), null, null, '3 rd street', 524218, 11, 3),
+(4, 'INDIA', now(), null, null, '4 th street', 524218, 12, 4),
+(5, 'INDIA', now(), null, null, '5 th street', 524218, 2, 1);
+
+INSERT INTO `users`(`ID`, `AUTHORITIES`, `CELL_PHONE`, `CREATE_DATE`, `FIRST_NAME`, `LAST_NAME`, `PASSWORD`,`TYPE`, `USER_NAME`, `PROPERTY_ID`)VALUES
+(1, 'USER', '90909099091', now(), 'First 1', 'Last 1', '', 'SELLER', 'test@test.com', 1),
+(2, 'USER', '90909099092, now(), 'First 2', 'Last 2', '', 'SELLER', 'test2@test.com', 2),
+(3, 'USER', '90909099093', now(), 'First 3', 'Last 3', '', 'SELLER', 'test3@test.com', 3),
+(4, 'USER', '90909099094', now(), 'First 4', 'Last 4', '', 'SELLER', 'test4@test.com', 4),
+(5, 'USER', '9090909905', now(), 'First 5', 'Last 5', '', 'SELLER', 'test5@test.com', 5);

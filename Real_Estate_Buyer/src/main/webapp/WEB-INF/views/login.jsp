@@ -44,14 +44,14 @@
                             style="visibility: hidden; display: none;">Remind me</a>
                         <div class="clearfix"></div>
                        <!--  <input type="text" class="form-control input-sm" id="emailId" autofocus="autofocus" name="emailId" placeholder="Enter Email ID" required> -->
-                      <input type="text" name="j_username" placeholder="USERNAME" >
+                      <input type="text" name="j_username" placeholder="Enter Email ID" id="emailId" autofocus="autofocus" name="emailId">
                     </div>
                     <div class="form-group">
                         <label class="managelabel">Password</label> <a href="javascript:void(0)" class="rem-link pull-right"
                             style="visibility: hidden; display: none;">Reset</a>
                         <div class="clearfix"></div>
                       <!--   <input type="password" class="form-control input-sm" id="password" name="password" placeholder="Enter Password" required> -->
-                      <input type="password" name="j_password" placeholder="PASSWORD" id="loginUserPassId">
+                      <input type="password" name="j_password" id="password" name="password" placeholder="Enter Password" required>
                     </div>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                     <div class="form-group">

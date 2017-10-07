@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<c:url value="/register" var="registerUrl" />
+<c:url value="/buyer/register" var="registerUrl" />
 <c:url value="/login" var="loginUrl" />
 
 <html>

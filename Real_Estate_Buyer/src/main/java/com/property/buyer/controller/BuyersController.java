@@ -30,7 +30,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.property.buyer.dto.RegisterBuyersDTO;
@@ -38,20 +37,13 @@ import com.property.buyer.service.BuyerService;
 import com.property.buyer.utility.CashBakConstantEnum;
 
 @Controller
+@RequestMapping(value="/buyer")
 public class BuyersController {
 
 	private static final Logger LOG = Logger.getLogger(BuyersController.class);
 
 	@Autowired
 	private BuyerService buyerService;
-	
-	@RequestMapping(value = "/")
-	public String dashboard(final HttpServletRequest request, final ModelMap model) {
-		String form = CashBakConstantEnum.LOGIN.getValue();
-		form = CashBakConstantEnum.WELCOME.getValue();
-		return form;
-	}
-	
 	
 	@RequestMapping(value = "/register")
 	public ModelAndView register(final HttpServletRequest request, final ModelMap model) {
@@ -60,41 +52,7 @@ public class BuyersController {
 		return modelAndView;
 	}
 
-
-	@RequestMapping(value = "/login**")
-	public String login(final HttpServletRequest request, final ModelMap model,
-			@RequestParam(value = "sessionExpired", required = false) final String sessionExpired) {
-		String form = CashBakConstantEnum.LOGIN.getValue();
-		if (sessionExpired != null) {
-			model.addAttribute(CashBakConstantEnum.SESSIONEXPMSG.getValue(),
-					CashBakConstantEnum.SESSION_EXP_MSG.getValue());
-			form = CashBakConstantEnum.LOGIN.getValue();
-		}
-		return form;
-	}
-
-	@RequestMapping(value = "/logout")
-	public String logout(final ModelMap model) {
-		LOG.info("Start getForgotPassword method");
-		model.addAttribute(CashBakConstantEnum.LOGOUT.getValue(),
-				CashBakConstantEnum.LOGGED_OUT_SUCCESSFULLY.getValue());
-		return CashBakConstantEnum.LOGIN.getValue();
-	}
-
-	@RequestMapping(value = "/alreadylogin")
-	public String alreadylogin(final ModelMap model) {
-		model.addAttribute(CashBakConstantEnum.EMPTY_STRING.getValue(), CashBakConstantEnum.ALREADY_LOGIN.getValue());
-		return CashBakConstantEnum.LOGOUT.getValue();
-	}
-
-	@RequestMapping(value = "/denied")
-	public String denied(final ModelMap model) {
-		model.addAttribute(CashBakConstantEnum.AUTHFAILED.getValue(),
-				CashBakConstantEnum.INVALID_USER_NAME_OR_PASSWORD.getValue());
-		return CashBakConstantEnum.LOGIN.getValue();
-	}
-	
-	@RequestMapping(value = "/buyer/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveEmployeeData(final ModelMap model, @ModelAttribute RegisterBuyersDTO registerBuyers)
 			throws ParseException, IOException {
 		String form = "";
@@ -104,5 +62,5 @@ public class BuyersController {
 
 		return form;
 	}
-
+	
 }

@@ -36,6 +36,9 @@ public class ApplicationConstants {
 	public static final String AES_MODE = "AES/CBC/PKCS7Padding";
 	// AESCrypt-ObjC uses SHA-256 (and so a 256-bit key)
 	public static final String HASH_ALGORITHM = "SHA-256";
+	public static final String SELLER = "SELLER";
+	public static final String BUYUER = "BUYER";
+	public static final String USER = "USER";
 	// AESCrypt-ObjC uses blank IV (not the best security, but the aim here is
 	// compatibility)
 

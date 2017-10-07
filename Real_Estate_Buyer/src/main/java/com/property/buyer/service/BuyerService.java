@@ -18,11 +18,11 @@
 package com.property.buyer.service;
 
 import com.property.buyer.dto.RegisterBuyersDTO;
-import com.property.buyer.model.Buyers;
+import com.property.buyer.model.Users;
 
 public interface BuyerService {
 
-	Buyers getUserLoginId(String username);
+	Users getUserLoginId(String username);
 
 	boolean saveBuyer(final RegisterBuyersDTO registerBuyersDTO);
 

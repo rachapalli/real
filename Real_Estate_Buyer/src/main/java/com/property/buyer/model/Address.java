@@ -63,9 +63,9 @@ public class Address implements java.io.Serializable {
 		return this.createDate;
 	}
 
+	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "address"))
 	@Id
 	@GeneratedValue(generator = "generator")
-	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "address"))
 	@Column(name = "ID", unique = true, nullable = false)
 	public Long getId() {
 		return this.id;
