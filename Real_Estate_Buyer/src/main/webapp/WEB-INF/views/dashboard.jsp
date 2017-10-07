@@ -16,17 +16,17 @@
 							<div class="col-sm-9">
 								<div class="form-group border-primary floatlbl-padding">
 									<input style="background-color: white;" type="text"
-										placeholder="Search for Products, Brands and more"
+										placeholder=" Search for Products, Brands and more"
 										 name="searchItem" id="searchItem"   autofocus 
-										class="form-control input-sm validate  serchOnClickEnter">
+										class="form-control input-sm validate  serchOnClickEnter height">
 								
 								</div>
 							</div>
 							<div class="col-sm-1">
 								<div class="form-group border-primary floatlbl-padding">
 									<button type="button" id="searchBtn"  onclick="fetchResults(this,'${fetchdataUrl}')" 
-										class="md-btn btn ink-reaction btn-success">
-										Search<i class="fa fa-search"></i>
+										class="md-btn btn ink-reaction btn ">
+										Search <i class="fa fa-search"></i>
 									</button>
 								</div>
 							</div>
