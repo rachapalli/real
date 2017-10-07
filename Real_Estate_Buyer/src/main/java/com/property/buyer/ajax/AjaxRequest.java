@@ -36,6 +36,8 @@ public class AjaxRequest implements Serializable {
 	private String city;
 	private String state;
 	private String street;
+	private String email;
+	private String message;
 
 	/**
 	 * 
@@ -84,5 +86,22 @@ public class AjaxRequest implements Serializable {
 	public void setStreet(String street) {
 		this.street = street;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
 
 }

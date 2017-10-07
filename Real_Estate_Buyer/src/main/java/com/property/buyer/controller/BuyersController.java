@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.property.buyer.ajax.AjaxRequest;
@@ -63,10 +64,29 @@ public class BuyersController {
 	}
 
 	@RequestMapping(value = "/property/search")
-	public AjaxResponse searchProperty(final HttpServletRequest request, final ModelMap model, @RequestBody final AjaxRequest ajaxRequest) {
+	public AjaxResponse searchProperty(final HttpServletRequest request, final ModelMap model,
+			@RequestBody final AjaxRequest ajaxRequest) {
 		final AjaxResponse ajaxResponse = new AjaxResponse();
 		buyerService.searchProperty(model, ajaxRequest, ajaxResponse);
 		return ajaxResponse;
+	}
+
+	@RequestMapping(value = "/contact/seller")
+	public @ResponseBody String contactSeller(final HttpServletRequest request, final ModelMap model,
+			@RequestBody final AjaxRequest ajaxRequest) {
+		if (buyerService.contactSeller(model, ajaxRequest)) {
+			return "SUCCESS";
+		}
+		return "FAILURE";
+	}
+	
+	@RequestMapping(value = "/filter/price")
+	public @ResponseBody String filterPrice(final HttpServletRequest request, final ModelMap model,
+			@RequestBody final AjaxRequest ajaxRequest) {
+		if (buyerService.contactSeller(model, ajaxRequest)) {
+			return "SUCCESS";
+		}
+		return "FAILURE";
 	}
 
 }

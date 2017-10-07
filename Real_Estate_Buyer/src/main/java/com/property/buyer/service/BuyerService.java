@@ -31,5 +31,7 @@ public interface BuyerService {
 	boolean saveBuyer(final RegisterBuyersDTO registerBuyersDTO);
 	
 	void searchProperty(final ModelMap map, final AjaxRequest ajaxRequest, final AjaxResponse ajaxResponse);
+	
+	boolean contactSeller(final ModelMap map, final AjaxRequest ajaxRequest);
 
 }

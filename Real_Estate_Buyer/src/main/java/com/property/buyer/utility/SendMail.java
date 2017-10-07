@@ -34,19 +34,6 @@ public class SendMail {
 	@Autowired
 	JavaMailSender mailSender;
 
-	public void send(String from, String to, String subject, String msg, Long custId) throws MessagingException {
-		LOG.info("Start send method");
-		MimeMessage message = mailSender.createMimeMessage();
-		message.setSubject(subject);
-		MimeMessageHelper helper;
-		helper = new MimeMessageHelper(message, true);
-		helper.setFrom(from);
-		helper.setTo(to);
-		helper.setText(msg, true);
-		mailSender.send(message);
-		LOG.info("End send method");
-	}
-
 	public void send(String from, String to, String subject, String msg) throws MessagingException {
 		LOG.info("Start send method");
 		MimeMessage message = mailSender.createMimeMessage();
