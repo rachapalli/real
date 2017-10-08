@@ -17,8 +17,6 @@
  */
 package com.property.buyer.service;
 
-import org.springframework.ui.ModelMap;
-
 import com.property.buyer.ajax.AjaxRequest;
 import com.property.buyer.ajax.AjaxResponse;
 import com.property.buyer.dto.RegisterBuyersDTO;
@@ -30,8 +28,12 @@ public interface BuyerService {
 
 	boolean saveBuyer(final RegisterBuyersDTO registerBuyersDTO);
 	
-	void searchProperty(final ModelMap map, final AjaxRequest ajaxRequest, final AjaxResponse ajaxResponse);
+	void searchProperty(final AjaxRequest ajaxRequest, final AjaxResponse ajaxResponse);
 	
-	boolean contactSeller(final ModelMap map, final AjaxRequest ajaxRequest);
+	void fetchProperty(final AjaxRequest ajaxRequest, final AjaxResponse ajaxResponse);
+	
+	void filterProperty(final AjaxRequest ajaxRequest, final AjaxResponse ajaxResponse);
+	
+	boolean contactSeller(final AjaxRequest ajaxRequest);
 
 }

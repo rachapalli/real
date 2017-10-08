@@ -21,7 +21,7 @@
 
         <div class="card center-login">
             <div class="login-head">
-                <%-- <img src="<c:url value='/static/img/user-icon.png' />" width="48" height="48"> --%>Login here
+                <%-- <img src="<c:url value='/static/img/user-icon.png' />" width="48" height="48"> --%>Login Here
             </div>
             <div class="main-inner">
                 <c:out value="${logout}" />
@@ -55,7 +55,7 @@
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                     <div class="form-group">
                         <button type="submit" class="btn btn-block dark-btn text-normalcase">
-                            Login
+                            Submit
                         </button>
                     </div>
                 </form>

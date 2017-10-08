@@ -32,12 +32,15 @@ public class AjaxRequest implements Serializable {
 	/** long Short Description */
 	private static final long serialVersionUID = -5955085522435056314L;
 	private String propertyName;
-	private BigDecimal price;
+	private BigDecimal lowPrice;
+	private BigDecimal highPrice;
 	private String city;
 	private String state;
 	private String street;
 	private String email;
 	private String message;
+	private long id;
+	private boolean highTolow;
 
 	/**
 	 * 
@@ -53,14 +56,6 @@ public class AjaxRequest implements Serializable {
 
 	public void setPropertyName(String propertyName) {
 		this.propertyName = propertyName;
-	}
-
-	public BigDecimal getPrice() {
-		return price;
-	}
-
-	public void setPrice(BigDecimal price) {
-		this.price = price;
 	}
 
 	public String getCity() {
@@ -102,6 +97,37 @@ public class AjaxRequest implements Serializable {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public BigDecimal getLowPrice() {
+		return lowPrice;
+	}
+
+	public void setLowPrice(BigDecimal lowPrice) {
+		this.lowPrice = lowPrice;
+	}
+
+	public BigDecimal getHighPrice() {
+		return highPrice;
+	}
+
+	public void setHighPrice(BigDecimal highPrice) {
+		this.highPrice = highPrice;
+	}
+
+	public boolean isHighTolow() {
+		return highTolow;
+	}
+
+	public void setHighTolow(boolean highTolow) {
+		this.highTolow = highTolow;
+	}
 
 }

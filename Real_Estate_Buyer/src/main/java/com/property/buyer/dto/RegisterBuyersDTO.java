@@ -26,6 +26,7 @@ package com.property.buyer.dto;
  */
 public class RegisterBuyersDTO {
 
+	private long id;
 	private String firstName;
 	private String lastName;
 	private String password;
@@ -74,6 +75,14 @@ public class RegisterBuyersDTO {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

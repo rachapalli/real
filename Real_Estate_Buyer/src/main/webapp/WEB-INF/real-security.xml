@@ -29,9 +29,9 @@
 	
 	<!-- To define the logout page url -->
 	<logout logout-success-url="/login?logout" delete-cookies="JSESSIONID" invalidate-session="false"></logout>
-	
+
 	 <!-- To handle session management and concurrency frequency -->
-		 <session-management invalid-session-url="/login?sessionexpired"
+		 <session-management invalid-session-url="/"
 			session-authentication-error-url="/login?alreadylogin">
 			<concurrency-control max-sessions="1" />
 		</session-management>

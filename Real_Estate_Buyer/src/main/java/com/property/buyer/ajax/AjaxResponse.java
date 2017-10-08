@@ -17,6 +17,12 @@
  */
 package com.property.buyer.ajax;
 
+/**
+ * This class is used to keep ajax response attribute values.
+ * 
+ * @author Umamaheswara
+ * @version 1.0 - Oct 05, 2017
+ */
 public class AjaxResponse {
 	private Boolean status = null;
 	private Object data = null;

@@ -38,7 +38,6 @@ function makeJsonAjaxCall(authCall) {
 	       timeout: timeout,
 	       cache: false,
 	       success: function (data, status, req) {
-	    	   alert(data);
 	           try {
 	               onSuccess(req, status, data);
 	           } catch (e) {

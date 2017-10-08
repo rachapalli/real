@@ -25,7 +25,7 @@ package com.property.buyer.utility;
  * @author mukeshs
  * @version 1.0 - Apr 7, 2016
  */
-public enum CashBakConstantEnum {
+public enum ConstantEnum {
 	WELCOME("index"), 
 	REGISTER("register"),
 	EMPTY_STRING(""),
@@ -42,7 +42,7 @@ public enum CashBakConstantEnum {
 	
 	private String value;
 
-	CashBakConstantEnum(String value) {
+	ConstantEnum(String value) {
 		this.value = value;
 
 	}

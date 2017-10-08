@@ -20,6 +20,7 @@ package com.property.buyer.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AccountExpiredException;
@@ -34,25 +35,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.property.buyer.utility.ApplicationConstants;
-import com.property.buyer.utility.CashBakConstantEnum;
+import com.property.buyer.utility.ConstantEnum;
 
 /**
- * Class Information
+ * This controller have all the log in related handler methods.
  * 
  * @author umamaheswarar - Chetu
  * @version 1.0 - Oct 7, 2017
  */
 @Controller
 public class LoginController {
+	private static final Logger LOG = Logger.getLogger(BuyersController.class);
 	@Autowired
 	private MessageSource messageSource;
 
 	@RequestMapping(value = "/login**")
 	public ModelAndView login(@RequestParam(value = "authfailed", required = false) final String authfailed,
 			@RequestParam(value = "logout", required = false) final String logout,
-			@RequestParam(value = "sessionexpired", required = false) final String sessionexpired,
+			//@RequestParam(value = "sessionexpired", required = false) final String sessionexpired,
 			@RequestParam(value = "alreadylogin", required = false) final String alreadylogin,
 			@RequestParam(value = "denied", required = false) final String denied, final HttpServletRequest request) {
+		LOG.info("Inside login handler method");
 		final ModelAndView modelView = new ModelAndView("login");
 		if (authfailed != null) {
 			modelView.addObject("authfailed", getErrorMessage(request, "SPRING_SECURITY_LAST_EXCEPTION"));
@@ -61,10 +64,10 @@ public class LoginController {
 			modelView.addObject(ApplicationConstants.MESSAGE,
 					messageSource.getMessage("login.error.logout", null, null));
 		}
-		if (sessionexpired != null) {
+		/*if (sessionexpired != null) {
 			modelView.addObject(ApplicationConstants.MESSAGE,
 					messageSource.getMessage("login.error.sessionexpired", null, null));
-		}
+		}*/
 		if (alreadylogin != null) {
 			modelView.addObject(ApplicationConstants.MESSAGE,
 					messageSource.getMessage("login.error.alreadylogin", null, null));
@@ -73,18 +76,22 @@ public class LoginController {
 			modelView.addObject(ApplicationConstants.MESSAGE,
 					messageSource.getMessage("login.error.denied", null, null));
 		}
+		LOG.info("End login handler method");
 		return modelView;
 	}
 
 	@RequestMapping(value = "/")
 	public String dashboard(final HttpServletRequest request, final ModelMap model) {
-		String form = CashBakConstantEnum.WELCOME.getValue();
+		LOG.info("Inside dashboard handler method");
+		String form = ConstantEnum.WELCOME.getValue();
+		LOG.info("End dashboard handler method");
 		return form;
 	}
 
 	private String getErrorMessage(final HttpServletRequest request, final String key) {
+		LOG.info("Inside getErrorMessage handler method");
 		final Exception exception = (Exception) request.getSession().getAttribute(key);
-		String error;
+		String error = "";
 		if (exception instanceof BadCredentialsException) {
 			error = messageSource.getMessage("login.error.badcreds", null, null);
 		} else if (exception instanceof LockedException) {
@@ -95,10 +102,11 @@ public class LoginController {
 			error = exception.getMessage();
 		} else if (exception instanceof CredentialsExpiredException) {
 			error = exception.getMessage();
-		} else {
+		} else if (exception != null){
 			error = exception.getMessage() != null ? exception.getMessage()
 					: messageSource.getMessage("login.error.badcreds", null, null);
 		}
+		LOG.info("End getErrorMessage handler method");
 		return error;
 	}
 

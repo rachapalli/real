@@ -21,6 +21,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -59,18 +60,43 @@ public class BuyerDaoImpl implements BuyerDao {
 	}
 
 	@Override
-	public List<Property> searchProperty(ModelMap map, AjaxRequest ajaxRequest,
-			AjaxResponse ajaxResponse) {
-		Criteria criteria = propertyBaseDao.getCurrentSession().createCriteria(
-				Property.class, "property");
+	public List<Property> searchProperty(AjaxRequest ajaxRequest, AjaxResponse ajaxResponse) {
+		Criteria criteria = propertyBaseDao.getCurrentSession().createCriteria(Property.class, "property");
 		criteria.createAlias("property.address", "address");
 		criteria.createAlias("address.state", "state");
 		criteria.createAlias("address.city", "city");
-		criteria.add(Restrictions.or(
-				Restrictions.ilike("property.propertyName", ajaxRequest.getPropertyName(),MatchMode.ANYWHERE),
-				Restrictions.ilike("property.description", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE),
-				Restrictions.ilike("state.state", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE),
-				Restrictions.ilike("city.cityName", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE)));
+		if (ajaxRequest.getPropertyName() != null && !ajaxRequest.getPropertyName().isEmpty()) {
+			criteria.add(Restrictions.or(
+					Restrictions.ilike("property.propertyName", ajaxRequest.getPropertyName(), MatchMode.ANYWHERE)));
+		}
+		if (ajaxRequest.getMessage() != null && !ajaxRequest.getMessage().isEmpty()) {
+			criteria.add(Restrictions.or(
+					Restrictions.ilike("property.description", ajaxRequest.getMessage(), MatchMode.ANYWHERE)));
+		}
+		if (ajaxRequest.getState() != null && !ajaxRequest.getState().isEmpty()) {
+			criteria.add(Restrictions.or(
+					Restrictions.ilike("state.state", ajaxRequest.getState(), MatchMode.ANYWHERE)));
+		}
+		if (ajaxRequest.getCity() != null && !ajaxRequest.getCity().isEmpty()) {
+			criteria.add(Restrictions.or(
+					Restrictions.ilike("city.cityName", ajaxRequest.getCity(), MatchMode.ANYWHERE)));
+		}
+		if (ajaxRequest.isHighTolow()) {
+			criteria.addOrder(Order.desc("property.price"));
+		} else {
+			criteria.addOrder(Order.asc("property.price"));
+		}
+		
+		@SuppressWarnings("unchecked")
+		final List<Property> properties = criteria.list();
+		return properties;
+	}
+
+	@Override
+	public List<Property> filterProperty(AjaxRequest ajaxRequest, AjaxResponse ajaxResponse) {
+		Criteria criteria = propertyBaseDao.getCurrentSession().createCriteria(Property.class, "property");
+		criteria.createAlias("property.address", "address");
+		criteria.add(Restrictions.between("property.price", ajaxRequest.getLowPrice(), ajaxRequest.getHighPrice()));
 		@SuppressWarnings("unchecked")
 		final List<Property> properties = criteria.list();
 		return properties;

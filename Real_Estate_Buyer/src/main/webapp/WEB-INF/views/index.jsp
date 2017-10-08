@@ -21,7 +21,7 @@
 <link href="<c:url value='/static/css/lib/theme.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/style/main-style.css' />" rel="stylesheet"></link>
 <script src="<c:url value='/static/js/lib/jQuery-2.1.4.min.js' />"></script>
-<script src="<c:url value='/static/js/lib/jquery-1.12.4.js' />"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 </head>
@@ -31,7 +31,7 @@
 			<div id="logo">
 				<h1>My Real Estate Web site</h1>
 			</div>
-			<div id="nav">
+			<div id="nav" class="pull-right btns">
 				<form:form id="registerFormId" action="${registerUrl}" method="POST">
 					<input type="submit" align="right" name="Register Buyers" value="Register Buyers" class="btn btn-warning">
 				</form:form>

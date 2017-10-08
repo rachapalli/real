@@ -22,6 +22,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -39,16 +40,23 @@ import com.property.buyer.service.BuyerService;
 import com.property.buyer.utility.ApplicationConstants;
 import com.property.buyer.utility.Utility;
 
+/**
+ * This class is having all the handler method to load dash board after succesfull login.
+ * 
+ * @author Umamaheswara
+ * @version 1.0 - Oct 05, 2017
+ */
 @Controller
 @SessionAttributes(ApplicationConstants.LOGGED_USER)
 @RequestMapping(value = "/real")
 public class DashboardController {
-
+	private static final Logger LOG = Logger.getLogger(BuyersController.class);
 	@Autowired
 	private BuyerService buyerService;
 
 	@RequestMapping(value = "/dashboard", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView dashboardView(final HttpServletRequest request, final ModelMap model) {
+		LOG.info("Inside dashboardView handler method ");
 		final ModelAndView modelView = new ModelAndView("dashboard");
 		Users loggedUser = null;
 		try {
@@ -83,8 +91,9 @@ public class DashboardController {
 				return new ModelAndView("redirect:/login");
 			}
 		} catch (final Exception e) {
-			Utility.getLogger(getClass()).error("Exception in dashboardView", e);
+			LOG.error("Exception in dashboardView", e);
 		}
+		LOG.info("Inside dashboardView handler method ");
 		return modelView;
 	}
 }

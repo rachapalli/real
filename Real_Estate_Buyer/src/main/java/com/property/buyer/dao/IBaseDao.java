@@ -19,38 +19,17 @@ package com.property.buyer.dao;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 public interface IBaseDao<T> {
 	
-	/**
-	 * Delete entity object related to specified bean object passed as method argument
-	 * 
-	 * @author gauravk
-	 * @param     paramT A Object type
-	 * @exception HibernateException
-	 * @return   Serializable
-	 */
-	public void delete(T paramT) throws HibernateException;
-    
-    /**Delete entity object based on the id that is related to a specific bean 
-     * 
-     * @author gauravk
-     * @param clazz
-     * @param id
-     * @return 
-     * @throws HibernateException
-     */
-    public boolean deleteById(Class<T> clazz,Long id) throws HibernateException;
    
     /**
      * Find and retrieve list of object as per provided sql param string and
      * parameter with maximum records size define
-     * @author gauravk
+     * @author Umamaheswarar
      * @param     paramString A String object contain
      * @param     paramMap A Map<String, Object> object contain
      * @param     maxResults A integer type variable contain
@@ -63,7 +42,7 @@ public interface IBaseDao<T> {
     /**
      * Find and retrieve list of object as per provided sql param string and
      * parameter with maximum records size define
-     * @author gauravk
+     * @author Umamaheswarar
      * @param     paramString A String object contain
      * @param     paramMap A Map<String, Object> object contain
      * @param     maxResults A integer type variable contain
@@ -89,7 +68,7 @@ public interface IBaseDao<T> {
     /**
      * Find and retrieve list of object as per provided sql param string and
      * parameter with maximum records size define
-     * @author gauravk
+     * @author Umamaheswarar
      * @param     paramString A String object contain
      * @param     paramMap A Map<String, Object> object contain
      * @param     maxResults A integer type variable contain
@@ -101,7 +80,7 @@ public interface IBaseDao<T> {
     
     /**
     * Find unique object using param query and parameter
-    * @author gauravk
+    * @author Umamaheswarar
     * @param     paramString A String object contain
     * @param     paramMap A Map<String, Object> object contain
     * @exception HibernateException
@@ -109,12 +88,25 @@ public interface IBaseDao<T> {
     */
     
    public <X> X findById(final Class<T> clazz, final Long id) throws HibernateException;
+   
+   /**
+    * Find and retrieve list of object as per provided sql param string and
+    * parameter with maximum records size define
+    * @author umamaheswarar
+    * @param     paramString A String object contain
+    * @param     paramMap A Map<String, Object> object contain
+    * @param     maxResults A integer type variable contain
+    * @exception HibernateException
+    * @return   List of type object
+    */
+   
+   <X> X findUniqueByColumn(final Class<T> clazz, String column, Object value) throws HibernateException;
     
     
     /**
      * Find and retrieve list of object as per provided sql param string and
      * parameter with maximum records size define
-     * @author gauravk
+     * @author Umamaheswarar
      * @param     paramString A String object contain
      * @param     paramMap A Map<String, Object> object contain
      * @param     maxResults A integer type variable contain
@@ -124,38 +116,16 @@ public interface IBaseDao<T> {
     
     public <X> List<X> findById(final Class<T> clazz, final Long...id) throws HibernateException;
 
-    /**
-     * Find and retrieve unique object as per provided sql param string and
-     * parameter with maximum records size define
-     * @author gauravk
-     * @param     paramString A String object contain
-     * @param     paramMap A Map<String, Object> object contain
-     * @param     maxResults A integer type variable contain
-     * @exception HibernateException
-     * @return   List of type object
-     */
-    
-    public <X> X findUniqueByColumn(final Class<T> clazz, String column, Object value) throws HibernateException;
     /**This method id used to get the session object 
      * 
-     * @author gauravk
+     * @author Umamaheswarar
      * @return session 					session object
      */
     public Session getCurrentSession();
     
     /**
-     * Save if not persit or update if already persist entity object in db
-     *
-     * @author gauravk
-     * @param     paramT A Object type
-     * @exception HibernateException
-     * @return   void
-     */
-    public T merge(T paramT) throws HibernateException;
-    
-    /**
      * Save entity object related to specified bean object passed as method argument
-     * @author gauravk
+     * @author Umamaheswarar
      * @param     paramT A Object type
      * @exception HibernateException
      * @return   Serializable
@@ -164,7 +134,7 @@ public interface IBaseDao<T> {
     
     /**
      * Save if not persit or update if already persist entity object in db
-     * @author gauravk
+     * @author Umamaheswarar
      * @param     paramT A Object type
      * @exception HibernateException
      * @return   void
@@ -175,8 +145,8 @@ public interface IBaseDao<T> {
 	 * unit of work, before committing the transaction and closing the
 	 * session 
 	 * 
-	 * @author vikashk3
-	 * @date May 25, 2017
+	 * @author Umamaheswarar
+	 * @date 04 Oct, 2017
 	 * @return <code>void</code>
 	 * @throws HibernateException
 	 */

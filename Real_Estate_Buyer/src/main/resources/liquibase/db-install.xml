@@ -41,10 +41,10 @@
      
 			INSERT INTO `property` (`ID`, `CREATE_DATE`, `ADDITIONAL_NOTES`, `BATH_ROOMS`, `BED_ROOMS`, `AREA`, `PRICE`, `PROPERTY_NAME`) VALUES
 			(1, now(), 'Test Property 1', 2, 2, '2000 sr fts', 1000000, 'Plot 256'),
-			(2, now(), 'Test Property 2', 2, 2, '2010 sq fts', 1000000, 'Plot 257'),
-			(3, now(), 'Test Property 3', 2, 2, '2020 sq fts', 1000000, 'Plot 258'),
-			(4, now(), 'Test Property 4', 2, 2, '2030 sq fts', 1000000, 'Plot 259'),
-			(5, now(), 'Test Property 5', 2, 2, '2040 sq fts', 1000000, 'Plot 255');
+			(2, now(), 'Test Property 2', 2, 2, '2010 sq fts', 2000000, 'Plot 257'),
+			(3, now(), 'Test Property 3', 2, 2, '2020 sq fts', 3000000, 'Plot 258'),
+			(4, now(), 'Test Property 4', 2, 2, '2030 sq fts', 4000000, 'Plot 259'),
+			(5, now(), 'Test Property 5', 2, 2, '2040 sq fts', 5000000, 'Plot 255');
      ]]>
 		</sql>
 	</changeSet>
